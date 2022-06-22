@@ -25,7 +25,7 @@ export default function Navbar() {
           {/* flex */}
           <div className="flex items-center justify-between">
             {/* hamburger wrapper */}
-            <div className="inline-flex gap-4">
+            <div className="inline-flex sm:hidden gap-4">
               {/* hamburger */}
               <div className="nav-item-container group">
                 <button className="nav-item" onClick={handleHam}>
@@ -49,29 +49,76 @@ export default function Navbar() {
                 <Logo />
               </a></Link>
             </div>
-            {/* account & cart */}
-            <div className="inline-flex gap-4">
+            {/* right side */}
+            <div className="inline-flex items-center gap-4 sm:gap-8">
+
+              {/* hidden on mobile */}
+              <div className="hidden sm:inline-flex gap-4">
+
+                {/* delights container */}
+                <div className="nav-item-container group">
+                  {/* delights link */}
+                  <Link href="#"><a className="nav-item inline-flex items-center gap-1">
+                    {/* delights text */}
+                    <span>Delights</span>
+                    {/* arrow */}
+                    <svg className="group-hover:-rotate-180 transition-transform mt-1 h-7 w-7" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </a></Link>
+
+                  {/* delights comp sub menu */}
+                  <div className="hidden sm:hidden sm:group-hover:inline-flex fixed w-screen min-w-full z-50 top-[6.1rem] left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
+                    <WidthLimiter paddingAll={ false } customPadding={ true }>
+                      <div className="pb-4 pt-2">
+                        <DelightsSubMenuComp
+                          salads={['Tossed', 'Composed', 'Bound']}
+                          sandwiches={['Vegetarian', 'Chicken & Beef', 'Fish', 'Grilled Cheese', 'Egg Based']}
+                          soups={['Noodle', 'Seafood', 'Vegetarian']}
+                          snacks={['Chips', 'Cookies', 'Savory', 'Sweets', 'Frozen']}
+                          drinks={['PH Water', 'Soda', 'Milk', 'Seltzer']}
+                        />
+                      </div>
+                    </WidthLimiter>
+                  </div>
+                </div>
+
+                {/* about link */}
+                <div className="nav-item-container">
+                  <Link href="#"><a className="nav-item inline-flex items-center ml-2">
+                    About
+                  </a></Link>
+                </div>
+              </div>
               {/* account */}
               <div className="nav-item-container">
-                <button className="nav-item" onClick={handleAccount}>
+                <button className="nav-item inline-flex flex-col items-center justify-center" onClick={handleAccount}>
                   <svg className="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" strokeWidth="2" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000">
                     <g><path d="M500,10C231.5,10,10,231.5,10,500s221.5,490,490,490s490-221.5,490-490S768.5,10,500,10z M795.3,835.6c0-134.2-100.7-248.4-221.5-281.9c73.8-26.8,120.8-100.7,120.8-181.2c0-107.4-87.3-194.7-194.7-194.7s-194.7,87.3-194.7,194.7c0,80.5,53.7,154.4,120.8,181.2c-127.5,33.6-221.5,147.7-221.5,281.9C110.7,755.1,50.3,634.2,50.3,500C50.3,251.6,251.6,50.3,500,50.3c248.4,0,449.7,201.4,449.7,449.7C949.7,634.2,889.3,755.1,795.3,835.6z"/></g>
                   </svg>
+                  {/* hide text on comp */}
+                  <span className="hidden sm:inline-block text-[0.95rem]">
+                    Log In
+                  </span>
                 </button>
               </div>
               {/* cart */}
               <div className="nav-item-container">
-                <button className="nav-item" onClick={handleCart}>
+                <button className="nav-item inline-flex flex-col items-center justify-center" onClick={handleCart}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
+                  {/* hide text on comp */}
+                  <span className="hidden sm:inline-block text-[0.95rem]">
+                    Cart
+                  </span>
                 </button>
               </div>
             </div>
           </div>
         </WidthLimiter>
         
-        <div className={`${hamSubMenuHidden} bg-[#FFA8A8]`}>
+        <div className={`${hamSubMenuHidden} sm:hidden bg-[#FFA8A8]`}>
           <WidthLimiter paddingAll={ false } customPadding={ true }>
             {/* padding */}
             <div className="px-16 py-2 text-[1.35rem]">
@@ -86,7 +133,7 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                {/* delights sub menu */}
+                {/* delights mobile sub menu */}
                 <div className="hidden group-focus-within:inline-flex flex-col ml-6 text-xl space-y-1">
                   <Link href="#"><a>
                     Salads  
@@ -118,4 +165,76 @@ export default function Navbar() {
       </nav>
     </>
   )
+}
+
+type props = {
+  salads: string[];
+  sandwiches: string[];
+  soups: string[];
+  snacks: string[];
+  drinks: string[];
+}
+
+function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks}: props) {
+  return (
+    <div className="flex flex-row items-start justify-center sm:space-x-[1.5rem] md:space-x-[5rem] lg:space-x-[7.5rem]">
+      {/* Salads */}
+      <Link href="#"><a className="mx-auto">
+        <SubHeaderItem header={"SALADS"} />
+        <div className="space-y-1">
+          {salads.map(salad => <SubMenuItem key={salad} name={salad} />)}
+        </div>
+      </a></Link>
+      
+      {/* Sandwiches */}
+      <Link href="#"><a className="mx-auto">
+        <SubHeaderItem header={"SANDWICHES"} />
+        <div className="space-y-1">
+          {sandwiches.map(sandwich => <SubMenuItem key={sandwich} name={sandwich} />)}
+        </div>
+      </a></Link>
+
+      {/* Soups */}
+      <Link href="#"><a className="mx-auto">
+        <SubHeaderItem header={"SOUPS"} />
+        <div className="space-y-1">
+          {soups.map(soup => <SubMenuItem key={soup} name={soup} />)}
+        </div>
+      </a></Link>
+
+      {/* Snacks */}
+      <Link href="#"><a className="mx-auto">
+        <SubHeaderItem header={"SNACKS"} />
+        <div className="space-y-1">
+          {snacks.map(soup => <SubMenuItem key={soup} name={soup} />)}
+        </div>
+      </a></Link>
+
+      {/* Drinks */}
+      <Link href="#"><a className="mx-auto">
+        <SubHeaderItem header={"DRINKS"} />
+        <div className="space-y-1">
+          {drinks.map(drink => <SubMenuItem key={drink} name={drink} />)}
+        </div>
+      </a></Link>
+    </div>
+  )
+}
+
+type subHeaderProps = {
+  header: string;
+}
+function SubHeaderItem({ header }: subHeaderProps) {
+  return (
+    <h3 className="sub-menu-header text-white mt-3 mb-5 sm:my-1 text-lg relative before:absolute after:absolute before:left-0 after:left-0 before:top-0 after:-bottom-1 before:w-full after:w-full before:h-[1px] after:h-[1.5px] before:bg-white after:bg-white">{header}</h3>
+  );
+}
+
+type subItemsProps = {
+  name: string;
+}
+function SubMenuItem({ name }: subItemsProps) {
+  return (
+    <p className="sub-menu-item text-white text-base">{name}</p>
+  );
 }

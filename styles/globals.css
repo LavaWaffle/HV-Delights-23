@@ -8,5 +8,5 @@ div.nav-item-container {
 }
 
 .nav-item {
-  @apply py-8
+  @apply py-8 text-[1.35rem]
 }
