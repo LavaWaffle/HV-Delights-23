@@ -7,9 +7,13 @@ type Props = {
 export default function WidthLimiter({ children, paddingAll, customPadding }: Props) {
   let newPadding: string = '';
   if (customPadding == false) {
+    // coder doesn't want to customize the padding
+    // so use default padding values
     if (true == paddingAll) {
+      // coder wants padding in all directions
       newPadding="p-8";
     } else {
+      // coder wants padding in x axis 
       newPadding="px-8";
     }
   }

@@ -1,12 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cinzel&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Piazzolla:opsz,wght@8..30,500&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cinzel&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@200;300;400;500;600&family=Piazzolla:opsz,wght@8..30,500&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --animation-delay-divide: 1.25;
+}
+
 div.nav-item-container {
-  @apply h-full 
+  @apply h-full; 
 }
 
 .nav-item {
-  @apply py-8 text-[1.35rem]
+  @apply py-8 text-[1.35rem];
+}
+
+.sub-menu-header {
+  @apply font-Spartan font-normal tracking-widest;
+  font-size: .9rem;
+  line-height: 1.5rem;
+}
+
+.sub-menu-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background: white;
+  
+}
+
+.sub-menu-item {
+  @apply font-Spartan tracking-normal text-sm;
+  font-weight:300;
+  
+}
+
+.under-line {
+  @apply relative;
+}
+
+/* Animation for underline effect on navbar*/
+.under-line::after{
+  content: "";
+  position: absolute;
+  bottom: -5.5px;
+  left: 0;
+  width: 0;  
+  height: 0.125rem;
+  background-color: #FDFDFD; 
+  transition: width 250ms ease-in-out;
+}
+  
+.nav-item-container:hover .under-line::after {
+  width: 100%;
+}
+
+/* Creates a animation delay for each child of the sub menu blocks */
+.sub-menu-container .sub-menu-block:nth-child(1) {
+  animation-delay: calc(50ms / var(--animation-delay-divide));
+}
+.sub-menu-container .sub-menu-block:nth-child(2) {
+  animation-delay: calc(100ms / var(--animation-delay-divide));
+}
+.sub-menu-container .sub-menu-block:nth-child(3) {
+  animation-delay: calc(150ms / var(--animation-delay-divide));
+}
+.sub-menu-container .sub-menu-block:nth-child(4) {
+  animation-delay: calc(200ms / var(--animation-delay-divide));
+}
+.sub-menu-container .sub-menu-block:nth-child(5) {
+  animation-delay: calc(250ms / var(--animation-delay-divide));
 }
