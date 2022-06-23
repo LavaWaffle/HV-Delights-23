@@ -13,10 +13,21 @@ module.exports = {
             transform: "translateY(0)",
             opacity: "100%"
           }
+        },
+        "slide-in-right": {
+          "0%": {
+            transform: "translateX(250px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "100%"
+          }
         }
       },
       animation: {
-        "slide-up": "slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
+        "slide-up": "slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
       },
       fontFamily: {
         'Abril': ['Abril Fatface'],
