@@ -1,4 +1,4 @@
-// import Footer from "./Footer/Footer"
+import Footer from "./footer/Footer"
 import Navbar from "./navbar/Navbar"
 
 type props = {
@@ -12,7 +12,7 @@ export default function Layout({ children }: props) {
       <main>
         { children }
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

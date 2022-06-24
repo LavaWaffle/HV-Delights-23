@@ -93,10 +93,12 @@ export default function HomePage() {
         {/* background hv */}
         {/* center abs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          {/* HV */}
-          <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[450px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
-            HV
-          </h1>
+          <div className="w-screen overflow-hidden text-center">
+            {/* HV */}
+            <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[450px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
+              HV
+            </h1>
+          </div>
         </div>
         <WidthLimiter paddingAll={true} customPadding={false}>
           {/* extra padding */}
@@ -182,7 +184,7 @@ export default function HomePage() {
       <section className="bg-[#FDACAC] pt-[5rem]">
         <WidthLimiter paddingAll={ true } customPadding={ false }>
           {/* flex */}
-          <div className="flex flex-col-reverse sm:flex-row items-center justify-around">
+          <div className="flex flex-col-reverse sm:flex-row items-center gap-3 sm:gap-0 sm:justify-around">
             {/* left (words) */}
             <div className="w-[95%] sm:w-[45%] md-[35%] lg:w-[40%] space-y-[25px] mb-11 flex-col flex lg:gap-10">
               <h1 className={`${styles.ourCommunity} font-Oswald text-black`}>
@@ -201,7 +203,7 @@ export default function HomePage() {
             {/* right (img) */}
             <div className="w-[75%] sm:w-[35%]">
               <Image
-                src="/index/ourCommunityImage.png"
+                src="/index/Our community Img.png"
                 height="42.5%"
                 width="35%"
                 layout='responsive'
