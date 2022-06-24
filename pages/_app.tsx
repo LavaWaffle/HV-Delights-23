@@ -7,6 +7,7 @@ import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core
 import { NotificationsProvider } from '@mantine/notifications';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import '../styles/globals.css';
+import Layout from '../components/Layout';
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -20,8 +21,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
 
-
-
   return (
     <>
       <Head>
@@ -34,7 +33,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <NotificationsProvider>
             <div className={colorScheme === 'dark' ? 'dark' : ''}>
-              <Component {...pageProps} />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
             </div>
           </NotificationsProvider>
         </MantineProvider>

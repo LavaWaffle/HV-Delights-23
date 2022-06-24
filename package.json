@@ -28,6 +28,7 @@
     "@modulz/radix-icons": "^4.0.0",
     "autoprefixer": "^10.4.4",
     "cookies-next": "^2.0.4",
+    "daisyui": "^2.17.0",
     "dayjs": "^1.11.0",
     "next": "12.1.4",
     "postcss": "^8.4.12",
@@ -35,7 +36,8 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "tailwindcss": "^3.0.24",
-    "tailwindcss-animistacss": "^1.0.7"
+    "tailwindcss-animistacss": "^1.0.7",
+    "tailwindcss-ripple": "^0.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

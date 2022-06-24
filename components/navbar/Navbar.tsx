@@ -92,7 +92,7 @@ export default function Navbar() {
                   </a></Link>
 
                   {/* delights comp sub menu */}
-                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 fixed w-screen min-w-full z-50 top-[6.84rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
+                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 absolute w-screen min-w-full z-50 top-[6.84rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
                     <WidthLimiter paddingAll={ false } customPadding={ true }>
                       <div className="pb-4 pt-2">
                         <DelightsSubMenuComp
