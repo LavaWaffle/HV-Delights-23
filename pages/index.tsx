@@ -82,7 +82,7 @@ export default function HomePage() {
             <HowCard 
               src="/index/experience.svg"
               title="Experience"
-              description="the nutricious and yummy taste of our delights."
+              description="the nutritious and yummy taste of our delights."
               flipped={true}
             />
           </div>
@@ -94,7 +94,7 @@ export default function HomePage() {
         {/* background hv */}
         {/* center abs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="overflow-hidden text-center">
+          <div className="w-screen overflow-hidden text-center">
             {/* HV */}
             <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[350px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
               HV
@@ -162,7 +162,7 @@ export default function HomePage() {
           <div className={`flex flex-row w-[100%] h-[500px]`}>
             <div className={`relative w-full h-full sm:inline-flex justify-center`}>
               {/* image container */}
-              <div className={`hidden sm:block ${styles.hoverContainer} bg-[#D6A6A6] border-[#D6A6A6] border-[0.65rem] relative w-full h-[530px] sm:w-[1000px] md:w-[45%] sm:h-[90%] mr-[30rem] -mt-[5.5rem]`}>
+              <div className={`inline-flex sm:block ${styles.hoverContainer} bg-[#D6A6A6] border-[#D6A6A6] border-[0.65rem] relative w-full h-[530px] sm:w-[1000px] md:w-[45%] sm:h-[90%] sm:mr-[14rem] lg:mr-[15rem] -mt-[5.5rem]`}>
                 {/* image */}
                 <div ref={ref} className={`w-full h-full ${styles.image}`}>
                 

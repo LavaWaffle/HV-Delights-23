@@ -160,33 +160,35 @@ export default function Navbar() {
                   </svg>
                 </button>
                 {/* delights mobile sub menu */}
-                <div className={`${styles.mobileSubMenuContainer} hidden group-focus-within:inline-flex flex-col ml-6 text-xl space-y-1`}>
+                <div onClick={handleHam} className={`${styles.mobileSubMenuContainer} hidden group-focus-within:inline-flex flex-col ml-6 text-xl space-y-1`}>
                   <Link href="/delights"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     All Delights
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Salads  
+                    Salads
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Sandwiches  
+                    Sandwiches
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Soups  
+                    Soups
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Snacks  
+                    Snacks
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Drinks  
+                    Drinks
                   </a></Link>
                 </div>
               </div>
 
               {/* about link */}
               <div className={`animate-slide-right ${styles.mobileSubItemContainer}`}>
-                <Link href="/about"><a>
-                  About
-                </a></Link>
+                <button onClick={handleHam}>
+                  <Link href="/about"><a>
+                    About
+                  </a></Link>
+                </button>
               </div>
             </div>
           </WidthLimiter>

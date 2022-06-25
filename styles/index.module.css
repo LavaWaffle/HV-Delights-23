@@ -62,6 +62,25 @@
     font-size: 300px;
 }
 
+@media only screen and (max-width:640px) {
+    .startQuote {
+        margin-top: 30rem !important;
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .startQuote {
+        margin-top: 40rem !important;
+    }
+}
+
+@media only screen and (max-width:300px) {
+    .startQuote {
+        margin-top: 45rem !important;
+    }
+}
+
+
 @media only screen and (max-width: 640px) {
     .startQuote::before {
         font-size: 250px;
