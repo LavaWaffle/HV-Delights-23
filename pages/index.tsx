@@ -94,9 +94,9 @@ export default function HomePage() {
         {/* background hv */}
         {/* center abs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="w-[450px] overflow-hidden text-center">
+          <div className="overflow-hidden text-center">
             {/* HV */}
-            <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[450px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
+            <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[350px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
               HV
             </h1>
           </div>

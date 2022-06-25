@@ -9,7 +9,7 @@ export default function Footer() {
 		<section className="bg-[#F3CABD] border-t-[20px] border-[#F5C4B9] relative">
 			<WidthLimiter paddingAll={true} customPadding={false}>
 				{/* flex */}
-				<div className="flex-col-reverse flex sm:flex-row item-center justify-between sm:mt-0 sm:mb-6 md:mb-20 z-50">
+				<div className="flex-col-reverse flex sm:flex-row item-center justify-between sm:px-8 sm:mt-0 sm:mb-6 md:mb-20 z-50">
 					{/* left (words) */}
 					<div className="flex flex-col space-y-16"> 
 						<div className="flex justify-center sm:justify-start mt-16 sm:mt-0 w-[100%] sm:w-[20%] md:w-[25%] lg:[35%] space-x-10 sm:space-x-20 tracking-[.07em] uppercase whitespace-nowrap text-[10px] phone:text-[14px] sm:xs sm:text-sm ">
@@ -138,7 +138,7 @@ export default function Footer() {
 				</div>
 			</div>
 			{/* pea bento wrapper */}
-			<div className="absolute top-[2.5rem] right-0 overflow-hidden">
+			<div className="absolute top-[2rem] right-0 overflow-hidden">
 				{/* pea bento */}
 				<div className="w-[10rem] opacity-60">
 					<Image
@@ -149,8 +149,6 @@ export default function Footer() {
 					/>
 				</div>
 			</div>
-
-
 		</section>
 	)
 }

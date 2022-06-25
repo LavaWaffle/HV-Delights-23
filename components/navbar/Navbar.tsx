@@ -161,7 +161,7 @@ export default function Navbar() {
                 </button>
                 {/* delights mobile sub menu */}
                 <div className={`${styles.mobileSubMenuContainer} hidden group-focus-within:inline-flex flex-col ml-6 text-xl space-y-1`}>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     All Delights
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
@@ -184,7 +184,7 @@ export default function Navbar() {
 
               {/* about link */}
               <div className={`animate-slide-right ${styles.mobileSubItemContainer}`}>
-                <Link href="#"><a>
+                <Link href="/about"><a>
                   About
                 </a></Link>
               </div>
