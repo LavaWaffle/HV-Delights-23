@@ -118,3 +118,136 @@
         line-height: 4rem; 
     }
 }
+
+.image {
+    opacity: 1;
+    background-image: url("/index/Bokksu1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   
+}
+
+
+@media only screen and (min-width: 640px) {
+    .image {
+        -webkit-animation: hover-opacity-rev 1s ease-in-out, hover-img-rev 1s ease-in-out;
+        animation: hover-opacity-rev 1s ease-in-out, hover-img-rev 1s ease-in-out;
+        opacity: 1;
+        background-image: url("/index/Bokksu1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .hoverContainer:hover .image {
+        -webkit-animation: hover-opacity 1s ease-in-out, hover-img 1s ease-in-out;
+        animation: hover-opacity 1s ease-in-out, hover-img 1s ease-in-out;
+        background-image: url("/index/Bokksu2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    @keyframes hover-opacity {
+        from {
+            margin-top: 0;
+            height: 100%;
+        }
+        50% {
+            margin-top: 40%;
+            height: 0%;
+        }
+        to {
+            height: 100%;
+        }
+    }
+    
+    @-webkit-keyframes hover-opacity {
+        from {
+            margin-top: 0;
+            height: 100%;
+        }
+        50% {
+            margin-top: 40%;
+            height: 0%;
+        }
+        to {
+            height: 100%;
+        }
+    }
+    
+    @keyframes hover-opacity-rev {
+        from {
+            margin-top: 0;
+            height: 100%;
+        }
+        50% {
+            margin-top: 40%;
+            height: 0%;
+        }
+        to {
+            height: 100%;
+        }
+    }
+    
+    @-webkit-keyframes hover-opacity-rev {
+        from {
+            margin-top: 0;
+            height: 100%;
+        }
+        50% {
+            margin-top: 40%;
+            height: 0%;
+        }
+        to {
+            height: 100%;
+        }
+    }
+    
+    @keyframes hover-img {
+        from {
+            background-image: url("/index/Bokksu1.jpg");
+        }
+        80% {
+            background-image: url("/index/Bokksu2.jpg");
+        }
+        to {
+            background-image: url("/index/Bokksu2.jpg");
+        }
+    }
+    
+    @-webkit-keyframes hover-img {
+        from {
+            background-image: url("/index/Bokksu1.jpg");
+        }
+        80% {
+            background-image: url("/index/Bokksu2.jpg");
+        }
+        to {
+            background-image: url("/index/Bokksu2.jpg");
+        }
+    }
+    
+    @keyframes hover-img-rev {
+        from {
+            background-image: url("/index/Bokksu2.jpg");
+        }
+        75% {
+            background-image: url("/index/Bokksu1.jpg");
+        }
+        to {
+            background-image: url("/index/Bokksu1.jpg");
+        }
+    }
+    
+    @-webkit-keyframes hover-img-rev {
+        from {
+            background-image: url("/index/Bokksu2.jpg");
+        }
+        75% {
+            background-image: url("/index/Bokksu1.jpg");
+        }
+        to {
+            background-image: url("/index/Bokksu1.jpg");
+        }
+    }
+}

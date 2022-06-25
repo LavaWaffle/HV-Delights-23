@@ -1,10 +1,11 @@
 import WidthLimiter from "../components/WidthLimiter";
 import styles from '../styles/index.module.css';
 import Image from 'next/image';
-import { useViewportSize } from "@mantine/hooks";
+import { useViewportSize, useHover } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const { hovered, ref } = useHover();
   return (
     <>
       <section className="bg-[#FAD4D4]">
@@ -52,7 +53,7 @@ export default function HomePage() {
           {/* padding */}
           <div className="py-[3.25rem]">
             {/* grid */}
-            <div className="grid justify-items-center mt-5 mb-1">
+            <div className="grid justify-items-center mb-1">
               <h1 className={`font-light font-Oswald px-[2.75rem] text-6xl text-white ${styles.howLines}`}>
                 How It Works
               </h1>
@@ -93,7 +94,7 @@ export default function HomePage() {
         {/* background hv */}
         {/* center abs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="w-screen overflow-hidden text-center">
+          <div className="w-[450px] overflow-hidden text-center">
             {/* HV */}
             <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[450px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
               HV
@@ -102,7 +103,7 @@ export default function HomePage() {
         </div>
         <WidthLimiter paddingAll={true} customPadding={false}>
           {/* extra padding */}
-          <div className="pt-[2rem] pb-[6rem] w-full">
+          <div className="pt-[2rem] sm:pb-[6rem] w-full">
             {/* flex */}
             <div className="flex flex-col items-center space-y-5">
               <div className="font-Lato font-light text-3xl">
@@ -154,14 +155,46 @@ export default function HomePage() {
           </div>
         </WidthLimiter>
       </section>
-
-      {/* ============================================================================= */}
-      {/* ================== NOTE TO FUTURE US: ADD BREAK HERE IF SPACE ISN't BIG ENUF= */}
-      {/* ============================================================================= */}
       
-
+      {/* see for yourself */}
+      <section className="bg-[#FDACAC]">
+        <WidthLimiter paddingAll={true} customPadding={false}>
+          <div className={`flex flex-row w-[100%] h-[500px]`}>
+            <div className={`relative w-full h-full sm:inline-flex justify-center`}>
+              {/* image container */}
+              <div className={`hidden sm:block ${styles.hoverContainer} bg-[#D6A6A6] border-[#D6A6A6] border-[0.65rem] relative w-full h-[530px] sm:w-[1000px] md:w-[45%] sm:h-[90%] mr-[30rem] -mt-[5.5rem]`}>
+                {/* image */}
+                <div ref={ref} className={`w-full h-full ${styles.image}`}>
+                
+                </div>
+              </div>
+              <div className="sm:absolute mt-[2rem] sm:mt-0 bottom-[8.5rem] right-[1.25rem] sm:w-[50%] sm:h-[45%] z-10">
+                {/* container */}
+                <div className="bg-[#FAD4D4]">
+                  {/* flex */}
+                  <div className="inline-flex flex-col py-[1rem] px-[2rem] items-start justify-center">
+                    {/* title */}
+                    <h1 className="font-light font-Lato text-[3rem]">
+                      See for yourself
+                    </h1>
+                    {/* desc */}
+                    <p className="font-Lato text-[#CC0303] text-[1.25rem] mt-[2rem] mb-[3rem]">
+                      HVDelights offers a unique experience as our Delights are made, packaged, and delivered with proper care.
+                    </p>
+                    {/* btn */}
+                    <button className={`w-[80%] font-Piazzolla font-light tracking-[.05em] text-3xl sm:text-3xl md-4xl p-3 md:p-5 ${styles.rippleBgCustom} text-[#F47C7C] ${styles.dropShadowButton}`}>
+                      Order my Delight
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </WidthLimiter>
+      </section>
+      
       {/* review */} 
-      <section className="bg-[#FDACAC] sm:pt-[6rem]">
+      <section className="bg-[#FDACAC] sm:pt-[15rem] lg:pt-[6rem]">
         <div className="grid justify-items-center font-Lora font-normal">
           <h4 className={`${styles.startQuote} text-[1.5rem] sm:text-[3rem] text-center text-white`}>
             I am always excited to order <br /> from HVDelights. The food is <br />always so yummy and <br />authentic!

@@ -59,8 +59,8 @@ module.exports = {
         'Berkshire': ['Berkshire Swash']
       },
       screens: {
-        "desk":'1300px',
-        "phone":'300px'
+        "phone": {'min': '300px', 'max': '640px'},
+        "desk":'1300px'
       },
       colors: {
         'dark-000': '#C1C2C5',

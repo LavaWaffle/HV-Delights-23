@@ -80,7 +80,7 @@ export default function Navbar() {
                 {/* delights container */}
                 <div className={`${styles.navItemContainer} group p-[6px]`}>
                   {/* delights link */}
-                  <Link href="#"><a className={`${styles.navItem} inline-flex items-center`}>
+                  <Link href="/delights"><a className={`${styles.navItem} inline-flex items-center`}>
                     <div className={`${styles.underLine} inline-flex gap-1`}>
                       {/* delights text */}
                       <span>Delights</span>
@@ -109,7 +109,7 @@ export default function Navbar() {
 
                 {/* about link */}
                 <div className={styles.navItemContainer}>
-                  <Link href="#"><a className={`${styles.navItem} inline-flex items-center ml-2`}>
+                  <Link href="/about"><a className={`${styles.navItem} inline-flex items-center ml-2`}>
                     <div className={styles.underLine}>
                       About
                     </div>
