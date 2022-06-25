@@ -80,7 +80,7 @@ export default function Navbar() {
                 {/* delights container */}
                 <div className={`${styles.navItemContainer} group p-[6px]`}>
                   {/* delights link */}
-                  <Link href="#"><a className={`${styles.navItem} inline-flex items-center`}>
+                  <Link href="/delights"><a className={`${styles.navItem} inline-flex items-center`}>
                     <div className={`${styles.underLine} inline-flex gap-1`}>
                       {/* delights text */}
                       <span>Delights</span>
@@ -92,7 +92,7 @@ export default function Navbar() {
                   </a></Link>
 
                   {/* delights comp sub menu */}
-                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 fixed w-screen min-w-full z-50 top-[6.84rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
+                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 absolute w-screen min-w-full z-50 top-[6.84rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
                     <WidthLimiter paddingAll={ false } customPadding={ true }>
                       <div className="pb-4 pt-2">
                         <DelightsSubMenuComp
@@ -109,7 +109,7 @@ export default function Navbar() {
 
                 {/* about link */}
                 <div className={styles.navItemContainer}>
-                  <Link href="#"><a className={`${styles.navItem} inline-flex items-center ml-2`}>
+                  <Link href="/about"><a className={`${styles.navItem} inline-flex items-center ml-2`}>
                     <div className={styles.underLine}>
                       About
                     </div>
@@ -161,7 +161,7 @@ export default function Navbar() {
                 </button>
                 {/* delights mobile sub menu */}
                 <div className={`${styles.mobileSubMenuContainer} hidden group-focus-within:inline-flex flex-col ml-6 text-xl space-y-1`}>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     All Delights
                   </a></Link>
                   <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
@@ -184,7 +184,7 @@ export default function Navbar() {
 
               {/* about link */}
               <div className={`animate-slide-right ${styles.mobileSubItemContainer}`}>
-                <Link href="#"><a>
+                <Link href="/about"><a>
                   About
                 </a></Link>
               </div>

@@ -1,0 +1,15 @@
+.input, .input::placeholder {
+  background-color: #F3CABD;
+  color: #BA8F8C;
+  font-family: Lato;
+  font-weight: 900;
+  letter-spacing: .07em;
+  width:70%;
+
+}
+
+
+
+.input:active, .input:focus {
+  outline: none;
+}

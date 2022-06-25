@@ -1,7 +1,12 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   darkMode: 'class',
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    ripple: () => ({
+      colors,
+    }),
     extend: {
       keyframes: {
         "slide-in-bottom": {
@@ -23,11 +28,22 @@ module.exports = {
             transform: "translateX(0)",
             opacity: "100%"
           }
+        },
+        "fade-in-slide-down": {
+          "0%": {
+            transform: "translateY(-250px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "100%"
+          }
         }
       },
       animation: {
         "slide-up": "slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
-        "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
+        "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "fade-in": "fade-in-slide-down .5s ease-in-out  both"
       },
       fontFamily: {
         'Abril': ['Abril Fatface'],
@@ -35,7 +51,16 @@ module.exports = {
         'Piazzolla': ['Piazzolla'],
         'Sorts': ['Sorts Mill Goudy'],
         'Cinzel': ['Cinzel'],
-        'Spartan': ['League Spartan']
+        'Spartan': ['League Spartan'],
+        'Oswald': ['Oswald'],
+        'Ledger': ['Ledger'],
+        'Lexend': ['Lexend Tera'],
+        'Lora': ['Lora'],
+        'Berkshire': ['Berkshire Swash']
+      },
+      screens: {
+        "phone": {'min': '300px', 'max': '640px'},
+        "desk":'1300px'
       },
       colors: {
         'dark-000': '#C1C2C5',
@@ -209,5 +234,8 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+    require('tailwindcss-ripple')()
+  ],
 };
