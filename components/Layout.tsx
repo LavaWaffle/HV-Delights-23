@@ -7,12 +7,16 @@ type props = {
 
 export default function Layout({ children }: props) {
   return (
-    <>
-      <Navbar />
-      <main>
+    <div className="flex flex-col min-h-screen">
+      <div className="grow-0">
+        <Navbar />
+      </div>
+      <main className="grow">
         { children }
       </main>
-      <Footer />
-    </>
+      <div className="grow-0">
+        <Footer />
+      </div>
+    </div>
   )
 }
