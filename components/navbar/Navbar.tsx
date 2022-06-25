@@ -3,9 +3,11 @@ import { createRef, useRef, useState } from "react";
 import Logo from "../Logo";
 import WidthLimiter from "../WidthLimiter";
 import styles from './navbar.module.css'
+import Cart from "../Cart/Cart";
 
 export default function Navbar() {
   const [hamSubMenuHidden, setHamSubMenuHidden] = useState("hidden")
+  const [cartState, setCartState] = useState("notActive")
 
   
   const handleHam = () => {
@@ -22,7 +24,11 @@ export default function Navbar() {
   }
 
   const handleCart = () => {
-    console.log("Cart Clicked");
+    if(cartState == "notActive") {
+      setCartState("active")
+    } else {
+      setCartState("notActive")
+    }
   }
   
   const handleNavContainer = () => {
@@ -35,6 +41,9 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md">
+        <div>
+          {cartState === "active" && <Cart />}
+        </div>
         <WidthLimiter paddingAll={ false } customPadding={ false }>
           {/* flex */}
           <div className="flex items-center justify-between">
