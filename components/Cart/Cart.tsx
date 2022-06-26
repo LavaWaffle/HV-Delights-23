@@ -15,12 +15,13 @@ export default function Cart(closeCart: any) {
                 <button className={`hidden sm:block flex-1 h-screen z-40`} onClick={closeCart.closeCart}>
                 </button>
                 {/* cart Screen */}
-                <div className="shadow-2xl w-[100%] sm:w-[500px] flex flex-col items-stretch opacity-100">
+                <div className="shadow-2xl w-[100%] sm:w-[500px] flex flex-col items-stretch opacity-100 text-white">
                     <div className="bg-[#FDACAC] flex flex-row pl-6 items-center justify-between">
                         {/* Top */}
                         <div className="font-Oswald text-4xl align font-extralight uppercase tracking-[.15em]  py-4">
                             Your Cart
                         </div>
+                        {/* Close X button */}
                         <button className="w-16 mr-4" onClick={closeCart.closeCart}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

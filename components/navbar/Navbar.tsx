@@ -58,10 +58,12 @@ export default function Navbar() {
       <div className={fix ? "h-[100px] " : ""}>
 
       </div>
-      <nav className={`${fix ? styles.fix : ""} ${fix ? "animate-fade-down" : ""}  bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md`}>
-        <div>
-          {cartState === "active" && <Cart closeCart={closeCart} />}
+      <div className="relative">
+        <div className={`${fix ? "absolute top-[-100px]" : ""}`}>
+            {cartState === "active" && <Cart closeCart={closeCart} />}
         </div>
+      </div>
+      <nav className={`${fix ? styles.fix : ""} ${fix ? "animate-nav-slide-down" : ""}  bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md`}>
         <WidthLimiter paddingAll={false} customPadding={false}>
           {/* flex */}
           <div className="flex items-center justify-between h-[100px]">

@@ -63,7 +63,7 @@ module.exports = {
             opacity: "100%"
           }
         },
-        "slide-down": {
+        "nav-slide-down": {
           "0%": {
             transform: "translateY(-250px)",
           },
@@ -77,7 +77,7 @@ module.exports = {
         "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "fade-down": "fade-in-slide-down .5s ease-in-out  both",
         "fade-in": "fade-in .5s ease-in-out both",
-        "slide-down": "slide-down .5s ease-in-out both",
+        "nav-slide-down": "nav-slide-down .5s ease-in-out both",
         "slide-in-fwd-right": "slide-in-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "slide-out-fwd-right": "slide-out-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
 

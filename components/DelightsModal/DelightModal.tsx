@@ -33,16 +33,15 @@ export default function DelightModal(productDetailProps: any) {
     }
     return (
         <>
-            <div className='h-screen w-screen fixed z-[80]'>
+            <div className='h-screen w-screen fixed z-[150]'>
                 <div className='opacity-30'>
-                    <div className='animate-fade-in absolute top-[-100px] w-full h-full bg-[#DFDFDF]'>
-                    </div>
+                    <button className='animate-fade-in absolute top-[-100px] w-full h-full bg-[#DFDFDF] ' onClick={handleClose}>
+                    </button>
                 </div>
-
             </div>
-            <div className='animate-slide-in-fwd-right fixed h-screen w-screen flex flex-row  justify-center items-center z-[120] '>
+            <div className='animate-slide-in-fwd-right fixed h-screen w-screen flex flex-row  justify-center items-center  z-[200]'>
                 <div className='relative'>
-                    <div className=' absolute top-[-100px] transform -translate-x-[50%] -translate-y-[50%] w-screen sm:w-[500px] md:w-[600px] lg:w-[900px] bg-[#FFCACA] rounded-2xl z-50 px-8 pb-6 pt-8'>
+                    <div className='absolute top-[-100px] transform -translate-x-[50%] -translate-y-[50%] w-screen sm:w-[500px] md:w-[600px] lg:w-[900px] bg-[#FFCACA] rounded-2xl px-8 pb-6 pt-8'>
                         <div className='relative flex flex-row justify-end'>
                             <div className='absolute top-[-.4rem]'>
                                 <button className="w-10 text-white" onClick={handleClose}>
