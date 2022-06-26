@@ -30,6 +30,10 @@ export default function Navbar() {
       setCartState("notActive")
     }
   }
+
+  const closeCart = () => {
+    setCartState("notActive")
+  }
   
   const handleNavContainer = () => {
     
@@ -42,7 +46,7 @@ export default function Navbar() {
     <>
       <nav className="bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md">
         <div>
-          {cartState === "active" && <Cart />}
+          {cartState === "active" && <Cart closeCart={closeCart}/>}
         </div>
         <WidthLimiter paddingAll={ false } customPadding={ false }>
           {/* flex */}

@@ -1,21 +1,27 @@
 import { CloseButton } from "@mantine/core"
 import Link from "next/link"
+import styles from "./cart.module.css"
 
-export default function Cart() {
-
+export default function Cart(closeCart: any) {
     return (
         <>
-            <button className="w-full h-screen fixed z-40 bg-[#DFDFDF] opacity-30">
-
-            </button>
-            <div className="w-full h-screen fixed z-50 flex flex-row justify-end">
-                <div className="shadow-xl w-[100%] sm:w-[500px] flex flex-col items-stretch opacity-100">
+            <div className="opacity-40">
+                <div className="animate-fade-in h-screen fixed w-full bg-[#DFDFDF]">
+                    
+                </div>
+            </div>
+            <div className="animate-slide-right w-full h-screen fixed z-50 flex flex-row justify-end">
+                {/* Blur effect on left side */}
+                <button className={`hidden sm:block flex-1 h-screen z-40`} onClick={closeCart.closeCart}>
+                </button>
+                {/* cart Screen */}
+                <div className="shadow-2xl w-[100%] sm:w-[500px] flex flex-col items-stretch opacity-100">
                     <div className="bg-[#FDACAC] flex flex-row pl-6 items-center justify-between">
                         {/* Top */}
                         <div className="font-Oswald text-4xl align font-extralight uppercase tracking-[.15em]  py-4">
                             Your Cart
                         </div>
-                        <button className="w-16 mr-4">
+                        <button className="w-16 mr-4" onClick={closeCart.closeCart}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
