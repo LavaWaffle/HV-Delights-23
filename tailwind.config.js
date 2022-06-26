@@ -46,13 +46,22 @@ module.exports = {
           to: {
             opacity: "100%"
           }
+        },
+        "slide-down": {
+          "0%": {
+            transform: "translateY(-250px)",
+          },
+          to: {
+            transform: "translateY(0)",
+          }
         }
       },
       animation: {
         "slide-up": "slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "fade-down": "fade-in-slide-down .5s ease-in-out  both",
-        "fade-in": "fade-in .5s ease-in-out both"
+        "fade-in": "fade-in .5s ease-in-out both",
+        "slide-down": "slide-down .5s ease-in-out both"
       },
       fontFamily: {
         'Abril': ['Abril Fatface'],
