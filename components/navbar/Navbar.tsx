@@ -8,8 +8,18 @@ import Cart from "../Cart/Cart";
 export default function Navbar() {
   const [hamSubMenuHidden, setHamSubMenuHidden] = useState("hidden")
   const [cartState, setCartState] = useState("notActive")
+  const [ fix, setFix ] = useState(false)
 
+  function setFixed() {
+    if (window.scrollY >= 150) {
+      setFix(true)
+    } else {
+      setFix(false)
+    }
+  }
   
+  window.addEventListener("scroll", setFixed)
+
   const handleHam = () => {
     console.log("Hamburger Clicked");
     setHamSubMenuHidden(hamSubMenuHidden === "hidden" ? "" : "hidden");
@@ -44,13 +54,16 @@ export default function Navbar() {
   }
   return (
     <>
-      <nav className="bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md">
+      <div className={fix ? "h-[100px] " : ""}>
+
+      </div>
+      <nav className={`${fix ? styles.fix : ""} ${fix ? "animate-fade-down" : ""}  bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md`}>
         <div>
           {cartState === "active" && <Cart closeCart={closeCart}/>}
         </div>
         <WidthLimiter paddingAll={ false } customPadding={ false }>
           {/* flex */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between h-[100px]">
             {/* hamburger wrapper (left side) */}
             <div className="inline-flex sm:hidden gap-4">
               {/* hamburger */}
@@ -79,10 +92,12 @@ export default function Navbar() {
               </div>
             </div>
             {/* logo */}
-            <div className={styles.navItemContainer}>
-              <Link href="/"><a>
-                <Logo />
-              </a></Link>
+            <div className="flex flex-col items-center">
+              <div className={styles.navItemContainer}>
+                <Link href="/"><a>
+                  <Logo />
+                </a></Link>
+              </div>
             </div>
             {/* right side */}
             <div className="inline-flex items-center gap-4 sm:gap-8">
@@ -105,7 +120,7 @@ export default function Navbar() {
                   </a></Link>
 
                   {/* delights comp sub menu */}
-                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 absolute w-screen min-w-full z-50 top-[6.84rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
+                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 absolute w-screen min-w-full z-50 top-[6.2rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
                     <WidthLimiter paddingAll={ false } customPadding={ true }>
                       <div className="pb-4 pt-2">
                         <DelightsSubMenuComp

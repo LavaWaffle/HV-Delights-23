@@ -109,3 +109,10 @@
 .mobileSubMenuContainer .mobileSubMenuItem:nth-child(6) {
   animation-delay: calc(300ms / var(--animation-delay-divide));
 }
+
+.fix {
+  position:fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+}
