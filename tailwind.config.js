@@ -29,21 +29,58 @@ module.exports = {
             opacity: "100%"
           }
         },
-        "fade-in-slide-down": {
+        "slide-in-right": {
           "0%": {
-            transform: "translateY(-250px)",
+            transform: "translateX(650px)",
             opacity: "0"
           },
           to: {
-            transform: "translateY(0)",
+            transform: "translateX(0)",
             opacity: "100%"
+          }
+        },
+        "slide-in-fwd-right": {
+          "0%": {
+            transform: "translateZ(700px) translateX(1400px)",
+          },
+          to: {
+            transform: "translateZ(0) translateX(0)",
+          }
+        },
+        "slide-out-fwd-right": {
+          "0%": {
+            transform: "translateZ(0) translateX(0)"
+          },
+          to: {
+            transform: "translateZ(700px) translateX(1400px)"
+          }
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0"
+          },
+          to: {
+            opacity: "100%"
+          }
+        },
+        "nav-slide-down": {
+          "0%": {
+            transform: "translateY(-250px)",
+          },
+          to: {
+            transform: "translateY(0)",
           }
         }
       },
       animation: {
         "slide-up": "slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
-        "fade-in": "fade-in-slide-down .5s ease-in-out  both"
+        "fade-down": "fade-in-slide-down .5s ease-in-out  both",
+        "fade-in": "fade-in .5s ease-in-out both",
+        "nav-slide-down": "nav-slide-down .5s ease-in-out both",
+        "slide-in-fwd-right": "slide-in-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-out-fwd-right": "slide-out-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
+
       },
       fontFamily: {
         'Abril': ['Abril Fatface'],
@@ -56,11 +93,13 @@ module.exports = {
         'Ledger': ['Ledger'],
         'Lexend': ['Lexend Tera'],
         'Lora': ['Lora'],
-        'Berkshire': ['Berkshire Swash']
+        'Berkshire': ['Berkshire Swash'],
+        'Rubik': ['Rubik'],
+        'Inter': ["Inter"]
       },
       screens: {
-        "phone": {'min': '300px', 'max': '640px'},
-        "desk":'1300px'
+        "phone": { 'min': '300px', 'max': '640px' },
+        "desk": '1300px'
       },
       colors: {
         'dark-000': '#C1C2C5',
