@@ -3,11 +3,43 @@ import styles from '../styles/index.module.css';
 import Image from 'next/image';
 import { useViewportSize, useHover } from "@mantine/hooks";
 import { useEffect, useState } from "react";
+import DelightModal from "../components/DelightsModal/DelightModal"
 
 export default function HomePage() {
   const { hovered, ref } = useHover();
+  const [productModal, setProductModal] = useState(false);
+
+  function handleClose() {
+    setProductModal(false);
+  }
+  
+  const handleModal = () => {
+    if (productModal == false) {
+      setProductModal(true)
+    } else {
+      setProductModal(false)
+    }
+  }
+  
+  const productDetailProps = {
+    title :"Chicken & Avacado Sandwich",
+    imagePath : "/temp/",
+    description: "Our specialty gourmet Chicken Avocado Sandwich, packed with delight. If your having a party, a dozen or so can make sure everyone has a delightful time!",
+    ingredients: "Chicken, Avocado, Tomato, Sourdough, Lettuce, Argula",
+    productFacts : 
+    `362 calories
+    6.6g total carbs
+    41g net carbs
+    12g fat
+    20g protein`,
+    price : 3.39
+  }
+
   return (
     <>
+      <div className="">
+        {productModal === true && <DelightModal productDetailProps={productDetailProps} closeCart={handleClose} />}
+      </div>
       <section className="bg-[#FAD4D4]">
         <WidthLimiter paddingAll={true} customPadding={false}>
           {/* flex */}
@@ -23,7 +55,7 @@ export default function HomePage() {
                 <svg className="hidden sm:inline-flex -rotate-[17deg] -mt-3" width="150" height="100" viewBox="0 0 179 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M154.58 127.026C161.215 120.912 169.965 112.49 175.372 105.446M175.372 105.446C175.996 104.634 168.643 102.076 168.294 101.986C160.636 100.005 152.948 99.061 145.091 98.2628M175.372 105.446C132.71 130.148 82.9634 123.733 60.8758 96.784C58.6867 94.113 56.3069 91.2037 54.2029 88.1005M54.2029 88.1005C50.8523 83.1587 48.2013 77.7254 48.1341 71.9807C48.0724 66.6789 50.2833 59.7477 55.2073 56.9676C64.4058 51.7746 75.171 60.6546 73.9174 70.5667C72.816 79.2772 63.1109 88.11 54.2029 88.1005ZM54.2029 88.1005C54.015 88.1003 53.8274 88.0962 53.6403 88.0881C8.47976 86.1197 -5.52841 36.141 9.71637 3.29341" stroke="black" strokeWidth="5.58817" strokeMiterlimit="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <button className={`${styles.textShadow} font-Piazzolla text-3xl sm:text-4xl md-5xl p-3 ${styles.rippleBgCustom} text-[#F47C7C] ${styles.dropShadowButton}`}>
+                <button className={`${styles.textShadow} font-Piazzolla text-3xl sm:text-4xl md-5xl p-3 ${styles.rippleBgCustom} text-[#F47C7C] ${styles.dropShadowButton}`} onClick={() => handleModal()}>
                   SHOP
                 </button>
               </div>

@@ -7,7 +7,7 @@ export default function Cart(closeCart: any) {
         <>
             <div className="opacity-40">
                 <div className="animate-fade-in h-screen fixed w-full bg-[#DFDFDF]">
-                    
+
                 </div>
             </div>
             <div className="animate-slide-right w-full h-screen fixed z-50 flex flex-row justify-end">
