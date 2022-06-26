@@ -21,7 +21,7 @@ export default function DelightCard(data: Delights) {
   // console.log(rating/2)
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
     useShoppingCart();
-
+  const newDesc: any = description;
   return (
     <div className="border-[#FFCACA] sm:hover:border-[#F1F1F1] border-[3px] rounded-2xl sm:hover:shadow-lg transition-all duration-200 h-full w-full px-4 py-3 sm:hover:scale-110 ">
       <div className="h-full flex flex-col justify-between space-y-2 group ">
@@ -77,7 +77,7 @@ export default function DelightCard(data: Delights) {
             <span>{numReviews} reviews</span>
           </div>
           {/* desc */}
-          <div className="font-Inter m-auto">{documentToReactComponents(description)}</div>
+          <div className="font-Inter m-auto">{documentToReactComponents(newDesc)}</div>
           {/* product details */}
           <div className="flex items-center space-x-1 cursor-pointer mt-1">
             <svg
