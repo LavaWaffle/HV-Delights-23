@@ -11,7 +11,9 @@ export async function getStaticProps() {
   if (process.env.CONTENTFUL_SPACE_ID === undefined || process.env.CONTENTFUL_ACCESS_TOKEN === undefined) {
     console.log("%cWARNING: CONTENTFUL SPACE ID OR ACCESS TOKEN IS UNDEFINED",
     "font-size: 50px; color: red");
-    return;
+    return {
+      props: []
+    };
   }
   
   // grab client with space id and access token
