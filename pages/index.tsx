@@ -3,7 +3,7 @@ import styles from '../styles/index.module.css';
 import Image from 'next/image';
 import { useViewportSize, useHover } from "@mantine/hooks";
 import { useEffect, useState } from "react";
-import DelightModal from "../components/DelightModal"
+import DelightModal from "../components/DelightsModal/DelightModal"
 
 export default function HomePage() {
   const { hovered, ref } = useHover();
@@ -23,7 +23,7 @@ export default function HomePage() {
   
   const productDetailProps = {
     title :"Chicken & Avacado Sandwich",
-    imagePath : "",
+    imagePath : "/temp/",
     description: "Our specialty gourmet Chicken Avocado Sandwich, packed with delight. If your having a party, a dozen or so can make sure everyone has a delightful time!",
     ingredients: "Chicken, Avocado, Tomato, Sourdough, Lettuce, Argula",
     productFacts : 
@@ -31,7 +31,8 @@ export default function HomePage() {
     6.6g total carbs
     41g net carbs
     12g fat
-    20g protein`
+    20g protein`,
+    price : 3.39
   }
 
   return (
