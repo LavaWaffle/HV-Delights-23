@@ -19,6 +19,7 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
     "@mantine/core": "4.2.2",
     "@mantine/dates": "4.2.2",
     "@mantine/hooks": "4.2.2",
@@ -27,6 +28,8 @@
     "@mantine/prism": "4.2.2",
     "@modulz/radix-icons": "^4.0.0",
     "autoprefixer": "^10.4.4",
+    "contentful": "^9.1.32",
+    "contentful-ts-type-generator": "github:arimkevi/contentful-ts-type-generator",
     "cookies-next": "^2.0.4",
     "daisyui": "^2.17.0",
     "dayjs": "^1.11.0",

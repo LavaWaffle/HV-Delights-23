@@ -4,10 +4,13 @@ import Logo from "../Logo";
 import WidthLimiter from "../WidthLimiter";
 import styles from './navbar.module.css'
 import Cart from "../Cart/Cart";
+import { useShoppingCart } from "../../context/ShoppingCartContext";
 
 export default function Navbar() {
   const [hamSubMenuHidden, setHamSubMenuHidden] = useState("hidden")
   const [cartState, setCartState] = useState("notActive")
+
+
   const [fix, setFix] = useState(false)
 
   function setFixed() {
@@ -20,6 +23,7 @@ export default function Navbar() {
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", setFixed)
   }
+
   
   const handleHam = () => {
     console.log("Hamburger Clicked");
@@ -40,6 +44,7 @@ export default function Navbar() {
     } else {
       setCartState("notActive")
     }
+    openCart()
   }
 
   const closeCart = () => {
@@ -53,6 +58,9 @@ export default function Navbar() {
   const handleAccount = () => {
     console.log("Account Clicked");
   }
+
+  const { openCart, cartQuantity } = useShoppingCart();
+
   return (
     <>
       <div className={fix ? "h-[100px] " : ""}>
@@ -160,11 +168,18 @@ export default function Navbar() {
                 </button>
               </div>
               {/* cart */}
-              <div className={styles.navItemContainer}>
+              <div className={`${styles.navItemContainer} relative`}>
                 <button className={`${styles.navItem} inline-flex flex-col items-center justify-center`} onClick={handleCart}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
+                  {cartQuantity > 0 && 
+                    <div className="absolute rounded-[50%] border-white border-[2px] inline-flex justify-center items-center text-white w-[1.5rem] h-[1.5rem] left-[75%] top-[15%]">
+                      <span className="text-[0.95rem]">
+                        {cartQuantity}
+                      </span>
+                    </div>
+                  }
                   {/* hide text on mobile */}
                   <span className="hidden sm:inline-block text-[0.95rem]">
                     Cart
