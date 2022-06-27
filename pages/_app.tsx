@@ -26,7 +26,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       <Head>
         <title>HVDelights</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>

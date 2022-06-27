@@ -1,10 +1,9 @@
 import { createClient } from 'contentful';
 import { useEffect, useState } from 'react';
-import DelightCard from '../components/delightCard/DelightCard';
-import Filter from '../components/filter/Filter';
-import WidthLimiter from '../components/WidthLimiter';
-import { Delights } from '../types/contentfulTypes';
-import DelightModal from '../components/delightModal/DelightModal';
+import DelightCard from "../../components/delightCard/DelightCard"
+import Filter from '../../components/filter/Filter';
+import WidthLimiter from '../../components/WidthLimiter';
+import { Delights } from '../../types/contentfulTypes';
 
 // grab data from contentful
 export async function getStaticProps() {

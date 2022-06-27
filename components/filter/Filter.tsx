@@ -18,7 +18,7 @@ export default function Filter({ typeValue, setTypeValue, sliderValue, setSlider
       {/* type wrapper */}
       <div className={`w-full text-white font-Lato text-[24px] px-2 border-b-[1px] border-r-[1px] border-white`}>
         {/* type button */}
-        <button className="w-full inline-flex flex-row items-center justify-between pb-3 font-Lato font-light tracking-[.20em]">
+        <button className="w-full inline-flex flex-row items-center justify-between pb-3 font-Lato font-bold tracking-[.20em]">
           <h3>TYPE</h3>
           {/* svg wrapper */}
           <div>
@@ -41,15 +41,15 @@ export default function Filter({ typeValue, setTypeValue, sliderValue, setSlider
             }}
           >
             <Checkbox value="sandwiches" label={
-              <p className="text-white select-none md:text-[1.30rem] cursor-pointer">Sandwiches</p>}/>
+              <p className="text-white font-semibold select-none md:text-[1.30rem] cursor-pointer">Sandwiches</p>}/>
             <Checkbox value="salads" label={
-              <p className="text-white select-none md:text-[1.30rem] cursor-pointer">Salads</p>}/>
+              <p className="text-white font-semibold select-none md:text-[1.30rem] cursor-pointer">Salads</p>}/>
             <Checkbox value="soups" label={
-              <p className="text-white select-none md:text-[1.30rem] cursor-pointer">Soups</p>}/>
+              <p className="text-white font-semibold select-none md:text-[1.30rem] cursor-pointer">Soups</p>}/>
             <Checkbox value="snacks" label={
-              <p className="text-white select-none md:text-[1.30rem] cursor-pointer">Snacks</p>}/>
+              <p className="text-white font-semibold select-none md:text-[1.30rem] cursor-pointer">Snacks</p>}/>
             <Checkbox value="drinks" label={
-              <p className="text-white select-none md:text-[1.30rem] cursor-pointer">Drinks</p>}/>
+              <p className="text-white font-semibold select-none md:text-[1.30rem] cursor-pointer">Drinks</p>}/>
           </CheckboxGroup>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function Filter({ typeValue, setTypeValue, sliderValue, setSlider
       {/* price wrapper */}
       <div className={`w-full text-white font-Lato text-[24px] px-2 pb-1 border-b-[1px] border-r-[1px] border-white`}>
         {/* price button */}
-        <button className="w-full inline-flex flex-row items-center justify-between font-Lato font-light tracking-[.20em] py-3">
+        <button className="w-full inline-flex flex-row items-center justify-between font-Lato font-bold tracking-[.20em] py-3">
           <h3>PRICE</h3>
           {/* svg wrapper */}
           <div>

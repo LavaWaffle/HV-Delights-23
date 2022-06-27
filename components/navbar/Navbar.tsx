@@ -174,7 +174,7 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   {cartQuantity > 0 && 
-                    <div className="absolute rounded-[50%] border-white border-[2px] inline-flex justify-center items-center text-white w-[1.5rem] h-[1.5rem] left-[75%] top-[15%]">
+                    <div className="absolute rounded-[50%] border-white border-[2px] bg-[#FD7676] inline-flex justify-center items-center text-white w-[1.5rem] h-[1.5rem] left-[60%] top-[20%]">
                       <span className="text-[0.95rem]">
                         {cartQuantity}
                       </span>
@@ -210,19 +210,19 @@ export default function Navbar() {
                   <Link href="/delights"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     All Delights
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Salads
-                  </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/sandwiches"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Sandwiches
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/salads"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                    Salads
+                  </a></Link>
+                  <Link href="/delights/soups"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Soups
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/snacks"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Snacks
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/drinks"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Drinks
                   </a></Link>
                 </div>
@@ -255,24 +255,24 @@ type props = {
 function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks }: props) {
   return (
     <div className={`${styles.subMenuContainer} flex flex-row items-start justify-center sm:space-x-[1.5rem] md:space-x-[5rem] lg:space-x-[7.5rem] pb-[.8rem] pt-[.5rem]`}>
+      {/* Sandwiches */}
+      <Link href="/delights/sandwiches"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+        <SubHeaderItem header={"SANDWICHES"} />
+        <div className="space-y-[.4rem]">
+          {sandwiches.map(sandwich => <SubMenuItem key={sandwich} name={sandwich} />)}
+        </div>
+      </a></Link>
+      
       {/* Salads */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/salads"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"SALADS"} />
         <div className="space-y-[.4rem]">
           {salads.map(salad => <SubMenuItem key={salad} name={salad} />)}
         </div>
       </a></Link>
 
-      {/* Sandwiches */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
-        <SubHeaderItem header={"SANDWICHES"} />
-        <div className="space-y-[.4rem]">
-          {sandwiches.map(sandwich => <SubMenuItem key={sandwich} name={sandwich} />)}
-        </div>
-      </a></Link>
-
       {/* Soups */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/soups"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"SOUPS"} />
         <div className="space-y-[.4rem]">
           {soups.map(soup => <SubMenuItem key={soup} name={soup} />)}
@@ -280,7 +280,7 @@ function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks }: prop
       </a></Link>
 
       {/* Snacks */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/snacks"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"SNACKS"} />
         <div className="space-y-[.4rem]">
           {snacks.map(soup => <SubMenuItem key={soup} name={soup} />)}
@@ -288,7 +288,7 @@ function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks }: prop
       </a></Link>
 
       {/* Drinks */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/drinks"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"DRINKS"} />
         <div className="space-y-[.4rem]">
           {drinks.map(drink => <SubMenuItem key={drink} name={drink} />)}

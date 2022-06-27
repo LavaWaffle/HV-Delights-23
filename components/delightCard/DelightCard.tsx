@@ -5,11 +5,10 @@ import { formatCurrency } from '../../utilities/formatCurrency';
 import { useShoppingCart } from '../../context/ShoppingCartContext';
 import { useRef, useState } from 'react';
 import Modal from 'react-modal';
-import { useClickOutside } from "@mantine/hooks"
+import { useClickOutside } from '@mantine/hooks';
 
 export default function DelightCard(data: Delights) {
   const [delightModalOpen, setDelightModal] = useState<boolean>(false);
-  const ref = useRef(null);
 
   const {
     numReviews,
@@ -28,20 +27,19 @@ export default function DelightCard(data: Delights) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
     useShoppingCart();
   const newDesc: any = description;
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1);
 
-  function handleQuantity(additive:number) {
-    setQuantity(quantity + additive)
+  function handleQuantity(additive: number) {
+    if (quantity + additive < 1) return;
+    setQuantity(quantity + additive);
   }
 
-  function getQuantity() {
-    return quantity
-  }
-  function handleAddToCart(id:string) {
+  function handleAddToCart(id: string) {
     for (var i = 0; i < quantity; i++) {
-    increaseCartQuantity(id)
+      increaseCartQuantity(id);
     }
-    setDelightModal(false)
+    setQuantity(1);
+    setDelightModal(false);
   }
 
   return (
@@ -102,7 +100,10 @@ export default function DelightCard(data: Delights) {
             {/* desc */}
             <div className="font-Inter m-auto">{documentToReactComponents(newDesc)}</div>
             {/* product details */}
-            <div onClick={() => increaseCartQuantity(id)} className="flex items-center space-x-1 cursor-pointer mt-1">
+            <div
+              onClick={() => setDelightModal(true)}
+              className="flex items-center space-x-1 cursor-pointer mt-1"
+            >
               <svg
                 width="31"
                 height="30"
@@ -134,14 +135,13 @@ export default function DelightCard(data: Delights) {
           </div>
         </div>
       </div>
-      
+
       <Modal
         isOpen={delightModalOpen}
         onRequestClose={() => {
-          setDelightModal(false)
+          setDelightModal(false);
         }}
         closeTimeoutMS={50}
-        ref={ref}
         className="absolute top-1/2 left-1/2 right-auto bottom-auto -mr-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FFCACA] rounded-[2rem] text-white animate-slide-margin-right"
         contentLabel="Delight"
       >
@@ -150,13 +150,17 @@ export default function DelightCard(data: Delights) {
           {/* top flex */}
           <div className="flex justify-between items-baseline">
             {/* title */}
-            <h1 className='font-Inter text-semibold text-[2rem]'>
-              { title }
-            </h1>
-
+            <h1 className="font-Inter font-semibold text-[2rem] my-2">{title}</h1>
             {/* close btn */}
             <button onClick={() => setDelightModal(false)}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -165,77 +169,108 @@ export default function DelightCard(data: Delights) {
           {/* content flex */}
           <div className="flex justify-between items-start">
             {/* left (text) */}
-            <div className='w-1/2 flex flex-col items-start space-y-3'>
+            <div className="w-1/2 flex flex-col items-start space-y-6">
               {/* description */}
-              <p className='font-Inter text-[1.05rem]'>
+              <p className="font-Inter text-[1.05rem] font-Light">
                 {documentToReactComponents(newDesc)}
-              </p> 
+              </p>
               {/* ingredients */}
-              <p className='font-Rubik font-medium text-[1rem]'>
-                Ingredients: 
-                {ingredients.map(ingredient => (
-                    <span key={ingredient} className="after:content-[','] before:content-['\000A0'] last:after:content-none">{ingredient}</span>
+              <div className="w-full overflow-clip flex flex-col gap-4">
+                <p className="font-Rubik font-medium text-[1rem] ">
+                  <span className='text-[#FAFAFA]'>Ingredients:</span>
+                  {ingredients.map((ingredient) => (
+                    <span
+                      key={ingredient}
+                      className="after:content-[','] before:content-['\000A0'] last:after:content-none"
+                    >
+                      {ingredient}
+                    </span>
                   ))}
-                
-              </p>
-              {/* nutrition info */}
-              <p className="font-Inter font-bold text-[0.95rem]">
-                Product Facts
-                <ul> {nutrition.map(nutrition => (
-                    <li key={nutrition} className="before:content-['\2022']">{nutrition}</li>
-                  ))}
-                </ul>
-              </p>
-            </div>
-            
-            {/* right (btns) */}
-            <div className='w-1/2 text-right pl-[4rem] mt-auto'>
-              {/* flex */}
-              <div className="flex flex-col items-start space-y-3">
-                <h2 className='font-Rubik text-[2rem]'>
-                  Quantity
-                </h2>
-
-                {/* btns */}
-                <div className="flex space-x-4 items-center font-Lato text-[1.5rem]">
-                  {/* minus */}
-                  <button onClick={() => handleQuantity(-1)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
-                    </svg>
-                  </button>
-                  {/* quant */}
-                  <span>{getQuantity()}</span>
-                  {/* add */}
-                  <button onClick={() => handleQuantity(1)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                  </button>
-                  <button onClick={() => removeFromCart(id)} className="pl-[0.25rem] font-Rubik font-light">remove</button>
-                </div>
-                
-                {/* price */}
-                <div className='font-Rubik text-[1.55rem] text-white'>
-                  Price - <span className='text-[#48BD77]'>{formatCurrency(price)}</span>
-                </div>
-
-                {/* add to cart btn */}
-                <button onClick={() => handleAddToCart(id)} className='bg-[#F49595] inline-flex items-center justify-center px-[3.5rem] py-5 rounded-[0.75rem]'>
-                  <span>Add to Cart</span>
-                </button>
-
-                {/* smoll words */}
-                <p className='text-[#F5F5F5] text-left text-[0.75rem]'>
-                Free U.S. shipping for orders over  $20, and a risk-free quality guarantee!
+                </p>
+                {/* nutrition info */}
+                <p className="font-Inter font-bold text-[0.95rem]">
+                  <span className="text-[#FAFAFA] text-base">Product Facts</span>
+                  <ul className="mt-1 text-sm">
+                    {nutrition.map((nutrition) => (
+                      <li key={nutrition} className="ml-4 before:content-['\2022\00A0\00A0'] ">
+                        {nutrition}
+                      </li>
+                    ))}
+                  </ul>
                 </p>
               </div>
             </div>
 
-          </div>
-        </div>  
-      </Modal>  
+            {/* right (btns) */}
+            <div className="w-1/2 text-right pl-[4rem] flex flex-col items-center">
+              {/* flex */}
+              <div className="flex flex-col h-full items-start space-y-3">
+                <h2 className="font-Rubik text-[2rem]">Quantity</h2>
 
+                {/* btns */}
+                <div className="flex space-x-4 items-center font-Lato text-[1.5rem]">
+                  {/* minus */}
+                  <button
+                    onClick={() => handleQuantity(-1)}
+                    className="py-4  px-[.7rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                    </svg>
+                  </button>
+                  {/* quant */}
+                  <span>{quantity}</span>
+                  {/* add */}
+                  <button
+                    onClick={() => handleQuantity(1)}
+                    className="py-4  px-[.7rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* price */}
+                <div className="font-Rubik text-[1.55rem] text-white">
+                  Price - <span className="text-[#48BD77]">{formatCurrency(price * quantity)}</span>
+                </div>
+
+                {/* add to cart btn */}
+                <button
+                  onClick={() => handleAddToCart(id)}
+                  className="font-Rubik font-Medium uppercase tracking-[.10em] inline-flex w-full bg-[#FF8B8B] items-center justify-center px-[3.5rem] py-5 rounded-[0.75rem]"
+                >
+                  <span>Add to Cart</span>
+                </button>
+
+                {/* smoll words */}
+                <p className="text-[#F5F5F5] text-left text-[0.75rem]">
+                  Free U.S. shipping for orders over $20, and a risk-free <span className='underline underline-offset-4'>quality guarantee!</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </>
   );
 }
