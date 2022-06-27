@@ -28,6 +28,22 @@ export default function DelightCard(data: Delights) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
     useShoppingCart();
   const newDesc: any = description;
+  const [quantity, setQuantity] = useState(0)
+
+  function handleQuantity(additive:number) {
+    setQuantity(quantity + additive)
+  }
+
+  function getQuantity() {
+    return quantity
+  }
+  function handleAddToCart(id:string) {
+    for (var i = 0; i < quantity; i++) {
+    increaseCartQuantity(id)
+    }
+    setDelightModal(false)
+  }
+
   return (
     <>
       <div className="border-[#FFCACA] sm:hover:border-[#F1F1F1] border-[3px] rounded-2xl sm:hover:shadow-lg transition-all duration-200 h-full w-full px-4 py-3 sm:hover:scale-110 ">
@@ -127,7 +143,7 @@ export default function DelightCard(data: Delights) {
         closeTimeoutMS={50}
         ref={ref}
         className="absolute top-1/2 left-1/2 right-auto bottom-auto -mr-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FFCACA] rounded-[2rem] text-white animate-slide-margin-right"
-        contentLabel="UWU"
+        contentLabel="Delight"
       >
         {/* container */}
         <div className="w-[65vw] py-5 px-10">
@@ -183,15 +199,15 @@ export default function DelightCard(data: Delights) {
                 {/* btns */}
                 <div className="flex space-x-4 items-center font-Lato text-[1.5rem]">
                   {/* minus */}
-                  <button onClick={() => decreaseCartQuantity(id)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
+                  <button onClick={() => handleQuantity(-1)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
                     </svg>
                   </button>
                   {/* quant */}
-                  <span>{getItemQuantity(id)}</span>
+                  <span>{getQuantity()}</span>
                   {/* add */}
-                  <button onClick={() => increaseCartQuantity(id)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
+                  <button onClick={() => handleQuantity(1)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
@@ -205,7 +221,7 @@ export default function DelightCard(data: Delights) {
                 </div>
 
                 {/* add to cart btn */}
-                <button onClick={() => increaseCartQuantity(id)} className='bg-[#F49595] inline-flex items-center justify-center px-[3.5rem] py-5 rounded-[0.75rem]'>
+                <button onClick={() => handleAddToCart(id)} className='bg-[#F49595] inline-flex items-center justify-center px-[3.5rem] py-5 rounded-[0.75rem]'>
                   <span>Add to Cart</span>
                 </button>
 
