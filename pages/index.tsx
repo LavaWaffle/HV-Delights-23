@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const { hovered, ref } = useHover();
+
+  
+
   return (
     <>
       <section className="bg-[#FAD4D4]">
@@ -183,7 +186,7 @@ export default function HomePage() {
                     </p>
                     {/* btn */}
                     <button className={`w-[80%] font-Piazzolla font-light tracking-[.05em] text-3xl sm:text-3xl md-4xl p-3 md:p-5 ${styles.rippleBgCustom} text-[#F47C7C] ${styles.dropShadowButton}`}>
-                      Order my Delight
+                      <a href="/delights">Order my Delight</a>
                     </button>
                   </div>
                 </div>
@@ -229,7 +232,7 @@ export default function HomePage() {
               </p>
 
               <button className={`w-[80%] font-Piazzolla font-light tracking-[.05em] text-3xl sm:text-4xl md-4xl p-3 md:p-5 ${styles.rippleBgCustom} text-[#F47C7C] ${styles.dropShadowButton}`}>
-                Order my Delight
+                <a href="/delights">Order my Delight</a>
               </button>
             </div>
             

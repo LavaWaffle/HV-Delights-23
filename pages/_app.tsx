@@ -7,6 +7,7 @@ import { NotificationsProvider } from '@mantine/notifications';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import '../styles/globals.css';
 import Layout from '../components/Layout';
+import { ShoppingCartProvider } from '../context/ShoppingCartContext';
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -23,19 +24,23 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>HV Tutors</title>
+        <title>HVDelights</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+        <MantineProvider theme={{ colorScheme, colors: {
+          truePink: ["#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8","#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8"]
+        } }} withGlobalStyles withNormalizeCSS>
           <NotificationsProvider>
-            <div className={colorScheme === 'dark' ? 'dark' : ''}>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </div>
+            <ShoppingCartProvider>
+              <div className={colorScheme === 'dark' ? 'dark' : ''}>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </div>
+            </ShoppingCartProvider>
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>

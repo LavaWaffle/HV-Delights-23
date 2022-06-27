@@ -3,9 +3,26 @@ import { createRef, useRef, useState } from "react";
 import Logo from "../Logo";
 import WidthLimiter from "../WidthLimiter";
 import styles from './navbar.module.css'
+import Cart from "../Cart/Cart";
+import { useShoppingCart } from "../../context/ShoppingCartContext";
 
 export default function Navbar() {
   const [hamSubMenuHidden, setHamSubMenuHidden] = useState("hidden")
+  const [cartState, setCartState] = useState("notActive")
+
+
+  const [fix, setFix] = useState(false)
+
+  function setFixed() {
+    if (window.scrollY >= 150) {
+      setFix(true)
+    } else {
+      setFix(false)
+    }
+  }
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", setFixed)
+  }
 
   
   const handleHam = () => {
@@ -22,22 +39,42 @@ export default function Navbar() {
   }
 
   const handleCart = () => {
-    console.log("Cart Clicked");
+    if (cartState == "notActive") {
+      setCartState("active")
+    } else {
+      setCartState("notActive")
+    }
+    openCart()
   }
-  
+
+  const closeCart = () => {
+    setCartState("notActive")
+  }
+
   const handleNavContainer = () => {
-    
+
   }
 
   const handleAccount = () => {
     console.log("Account Clicked");
   }
+
+  const { openCart, cartQuantity } = useShoppingCart();
+
   return (
     <>
-      <nav className="bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md">
-        <WidthLimiter paddingAll={ false } customPadding={ false }>
+      <div className={fix ? "h-[100px] " : ""}>
+
+      </div>
+      <div className="relative">
+        <div className={`${fix ? "absolute top-[-100px]" : ""}`}>
+            {cartState === "active" && <Cart closeCart={closeCart} />}
+        </div>
+      </div>
+      <nav className={`${fix ? styles.fix : ""} ${fix ? "animate-nav-slide-down z-0" : ""}  bg-[#FD7676] text-[#FDFDFD] font-Lato font-normal shadow-md`}>
+        <WidthLimiter paddingAll={false} customPadding={false}>
           {/* flex */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between h-[100px]">
             {/* hamburger wrapper (left side) */}
             <div className="inline-flex sm:hidden gap-4">
               {/* hamburger */}
@@ -66,10 +103,12 @@ export default function Navbar() {
               </div>
             </div>
             {/* logo */}
-            <div className={styles.navItemContainer}>
-              <Link href="/"><a>
-                <Logo />
-              </a></Link>
+            <div className="flex flex-col items-center">
+              <div className={styles.navItemContainer}>
+                <Link href="/"><a>
+                  <Logo />
+                </a></Link>
+              </div>
             </div>
             {/* right side */}
             <div className="inline-flex items-center gap-4 sm:gap-8">
@@ -85,15 +124,15 @@ export default function Navbar() {
                       {/* delights text */}
                       <span>Delights</span>
                       {/* arrow */}
-                      <svg className="group-hover:-rotate-180 transition-transform mt-1 h-7 w-7" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <svg className="group-hover:-rotate-180 transition-transform mt-1 h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
                   </a></Link>
 
                   {/* delights comp sub menu */}
-                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 absolute w-screen min-w-full z-50 top-[6.84rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
-                    <WidthLimiter paddingAll={ false } customPadding={ true }>
+                  <div className="delights-sub-menu sm:hidden sm:group-hover:inline-flex sm:group-hover:opacity-100 absolute w-screen min-w-full z-50 top-[6.2rem] shadow-md left-0 bg-gradient-to-b from-[#FF8E8E] to-[#FFA8A8]">
+                    <WidthLimiter paddingAll={false} customPadding={true}>
                       <div className="pb-4 pt-2">
                         <DelightsSubMenuComp
                           salads={['Tossed', 'Composed', 'Bound']}
@@ -120,7 +159,7 @@ export default function Navbar() {
               <div className={styles.navItemContainer} onMouseDown={handleNavContainer}>
                 <button className={`${styles.navItem} inline-flex flex-col items-center justify-center`} onClick={handleAccount}>
                   <svg className="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" strokeWidth="2" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000">
-                    <g><path d="M500,10C231.5,10,10,231.5,10,500s221.5,490,490,490s490-221.5,490-490S768.5,10,500,10z M795.3,835.6c0-134.2-100.7-248.4-221.5-281.9c73.8-26.8,120.8-100.7,120.8-181.2c0-107.4-87.3-194.7-194.7-194.7s-194.7,87.3-194.7,194.7c0,80.5,53.7,154.4,120.8,181.2c-127.5,33.6-221.5,147.7-221.5,281.9C110.7,755.1,50.3,634.2,50.3,500C50.3,251.6,251.6,50.3,500,50.3c248.4,0,449.7,201.4,449.7,449.7C949.7,634.2,889.3,755.1,795.3,835.6z"/></g>
+                    <g><path d="M500,10C231.5,10,10,231.5,10,500s221.5,490,490,490s490-221.5,490-490S768.5,10,500,10z M795.3,835.6c0-134.2-100.7-248.4-221.5-281.9c73.8-26.8,120.8-100.7,120.8-181.2c0-107.4-87.3-194.7-194.7-194.7s-194.7,87.3-194.7,194.7c0,80.5,53.7,154.4,120.8,181.2c-127.5,33.6-221.5,147.7-221.5,281.9C110.7,755.1,50.3,634.2,50.3,500C50.3,251.6,251.6,50.3,500,50.3c248.4,0,449.7,201.4,449.7,449.7C949.7,634.2,889.3,755.1,795.3,835.6z" /></g>
                   </svg>
                   {/* hide text on mobile */}
                   <span className="hidden sm:inline-block text-[0.95rem]">
@@ -129,11 +168,18 @@ export default function Navbar() {
                 </button>
               </div>
               {/* cart */}
-              <div className={styles.navItemContainer}>
+              <div className={`${styles.navItemContainer} relative z-[30]`}>
                 <button className={`${styles.navItem} inline-flex flex-col items-center justify-center`} onClick={handleCart}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
+                  {cartQuantity > 0 && 
+                    <div className="absolute rounded-[50%] border-white border-[2px] bg-[#FD7676] inline-flex justify-center items-center text-white w-[1.5rem] h-[1.5rem] left-[60%] top-[20%]">
+                      <span className="text-[0.95rem]">
+                        {cartQuantity}
+                      </span>
+                    </div>
+                  }
                   {/* hide text on mobile */}
                   <span className="hidden sm:inline-block text-[0.95rem]">
                     Cart
@@ -143,9 +189,9 @@ export default function Navbar() {
             </div>
           </div>
         </WidthLimiter>
-        
+
         <div className={`${hamSubMenuHidden} sm:hidden ${styles.mobileSubMenu}`}>
-          <WidthLimiter paddingAll={ false } customPadding={ true }>
+          <WidthLimiter paddingAll={false} customPadding={true}>
             {/* padding */}
             <div className="px-16 py-2 text-[1.35rem]">
               {/* delights container */}
@@ -155,7 +201,7 @@ export default function Navbar() {
                   {/* delights text */}
                   <span>Delights</span>
                   {/* arrow */}
-                  <svg className="group-focus-within:-rotate-180 transition-transform h-6 w-6" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <svg className="group-focus-within:-rotate-180 transition-transform h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -164,19 +210,19 @@ export default function Navbar() {
                   <Link href="/delights"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     All Delights
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
-                    Salads
-                  </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/sandwiches"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Sandwiches
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/salads"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                    Salads
+                  </a></Link>
+                  <Link href="/delights/soups"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Soups
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/snacks"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Snacks
                   </a></Link>
-                  <Link href="#"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
+                  <Link href="/delights/drinks"><a className={`animate-slide-right ${styles.mobileSubMenuItem}`}>
                     Drinks
                   </a></Link>
                 </div>
@@ -206,27 +252,27 @@ type props = {
   drinks: string[];
 }
 
-function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks}: props) {
+function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks }: props) {
   return (
     <div className={`${styles.subMenuContainer} flex flex-row items-start justify-center sm:space-x-[1.5rem] md:space-x-[5rem] lg:space-x-[7.5rem] pb-[.8rem] pt-[.5rem]`}>
-      {/* Salads */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
-        <SubHeaderItem header={"SALADS"} />
-        <div className="space-y-[.4rem]">
-          {salads.map(salad => <SubMenuItem key={salad} name={salad} />)}
-        </div>
-      </a></Link>
-      
       {/* Sandwiches */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/sandwiches"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"SANDWICHES"} />
         <div className="space-y-[.4rem]">
           {sandwiches.map(sandwich => <SubMenuItem key={sandwich} name={sandwich} />)}
         </div>
       </a></Link>
+      
+      {/* Salads */}
+      <Link href="/delights/salads"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+        <SubHeaderItem header={"SALADS"} />
+        <div className="space-y-[.4rem]">
+          {salads.map(salad => <SubMenuItem key={salad} name={salad} />)}
+        </div>
+      </a></Link>
 
       {/* Soups */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/soups"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"SOUPS"} />
         <div className="space-y-[.4rem]">
           {soups.map(soup => <SubMenuItem key={soup} name={soup} />)}
@@ -234,7 +280,7 @@ function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks}: props
       </a></Link>
 
       {/* Snacks */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/snacks"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"SNACKS"} />
         <div className="space-y-[.4rem]">
           {snacks.map(soup => <SubMenuItem key={soup} name={soup} />)}
@@ -242,7 +288,7 @@ function DelightsSubMenuComp({ salads, sandwiches, soups, snacks, drinks}: props
       </a></Link>
 
       {/* Drinks */}
-      <Link href="#"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
+      <Link href="/delights/drinks"><a className={`mx-auto animate-slide-up ${styles.subMenuBlock} space-y-[.4rem]`}>
         <SubHeaderItem header={"DRINKS"} />
         <div className="space-y-[.4rem]">
           {drinks.map(drink => <SubMenuItem key={drink} name={drink} />)}
