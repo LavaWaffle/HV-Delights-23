@@ -7,11 +7,11 @@ type props = {
 
 export default function Layout({ children }: props) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#FDACAC]">
       <div className="grow-0 z-50">
         <Navbar />
       </div>
-      <main className="grow z-5">
+      <main className="grow z-5 overflow-x-hidden">
         { children }
       </main>
       <div className="grow-0 z-0">

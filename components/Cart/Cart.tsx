@@ -67,8 +67,8 @@ export default function Cart(closeCart: any) {
               }</div>
             </div>
             <div className="flex flex-col gap-2">
-              <Link href="#">
-                <a className="bg-[#FD7676] py-[10px]">
+              <Link href="/checkout">
+                <a onClick={closeCart.closeCart} className="bg-[#FD7676] py-[10px]">
                   <div className="flex flex-row justify-center items-center gap-3">
                     <div>
                       <svg

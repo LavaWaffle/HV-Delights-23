@@ -296,9 +296,15 @@ module.exports = {
     require('daisyui'),
     require('tailwindcss-ripple')(),
     tailwindCSSAnimista({
-      classes:['animate__slide-in-right'],
+      classes:['animate__slide-in-right', 'animate__slide-out-left'],
       settings:{
         'animate__slide-in-right':{
+          duration:1000,
+          delay:0,
+          iterationCounts:1,
+          isInfinite:false,
+        },
+        'animate__slide-out-left':{
           duration:1000,
           delay:0,
           iterationCounts:1,

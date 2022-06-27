@@ -1,0 +1,54 @@
+.btn {
+  color:white;
+  border-radius: .5rem;
+  padding: 1.5rem 0.75rem;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 1.25rem;  
+  border-width: 2px;
+  border-color: transparent;
+  background-color: transparent;
+  transition-property: background-color, border-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.btnNorm {
+  background-color: #FFCACA;
+}
+
+.btnFocus {
+  background-color: #FF9C9C;
+  border-color: black;
+}
+
+.label {
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: white;
+}
+
+.input {
+  color: white;
+  border-radius: .5rem;
+  padding: 1.5rem 0.75rem;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 1.25rem;  
+  border-width: 2px;
+  background-color: #FFCACA;
+  border-color: white;
+  transition-property: background-color, border-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+.input::placeholder {
+  color: #847B7B;
+}
+
+.input:focus {
+  background-color: #FF9C9C;
+  border-color: black;
+  outline: none;
+}

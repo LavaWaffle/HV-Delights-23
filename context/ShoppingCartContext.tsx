@@ -27,6 +27,7 @@ type ShoppingCartContext = {
   increaseCartQuantity: (id: string) => void;
   decreaseCartQuantity: (id: string) => void;
   removeFromCart: (id: string) => void;
+  resetCart: () => void;
   cartQuantity: number
   cartItems: CartItem[]
 }
@@ -94,6 +95,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       return currItems.filter(item => item.id !== id)
     })
   }
+
+  function resetCart() {
+    setCartItems([]);
+  }
   
   let db: any;
 
@@ -109,6 +114,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       removeFromCart,
       cartItems,
       cartQuantity,
+      resetCart,
       openCart,
       closeCart,
       findItem

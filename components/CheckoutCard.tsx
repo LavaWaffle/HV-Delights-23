@@ -1,7 +1,7 @@
 import { Asset } from "contentful";
-import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { useShoppingCart } from "../context/ShoppingCartContext"
 import Image from "next/image"
-import { formatCurrency } from "../../utilities/formatCurrency";
+import { formatCurrency } from "../utilities/formatCurrency";
 type CartItemProps = {
   id: string;
   quantity: number;
@@ -21,7 +21,7 @@ export default function CartItem({ id, quantity, delightType, description, ingre
   
   return (
     // cart item container
-    <div className="flex space-x-2 last:border-none border-b-2 border-white text-white">
+    <div className="flex space-x-2 last:border-none border-b-2 border-white text-white pb-2">
       {/* left (img) */}
       <div className="w-3/4 h-full">
         <Image
@@ -34,15 +34,15 @@ export default function CartItem({ id, quantity, delightType, description, ingre
       {/* right (info) */}
       <div className="w-full h-full">
         {/* title*/}
-        <h3 className="font-Lora text-[1.5rem] font-medium ">
+        <h3 className="font-Lora text-[1.5rem] font-medium pb-1">
           { title }
         </h3>
         {/* price */}
-        <h3 className="font-Lora font-medium text-[#FD7676] text-[1.25rem]">
-          { formatCurrency(price*quantity) }
-        </h3>
+            <h3 className="font-Lora font-medium text-[#ff5353] text-[1.25rem]">
+              { formatCurrency(price*quantity) }
+            </h3>
         {/* btns container */}
-        <div className="flex space-x-4 items-center font-Lato ">
+        <div className="flex space-x-4 items-center font-Lato pt-2">
           {/* minus */}
           <button onClick={() => decreaseCartQuantity(id)} className="py-2 px-[0.35rem] bg-[#F49595] rounded-lg inline-flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
