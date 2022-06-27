@@ -34,12 +34,12 @@ export default function CartItem({ id, quantity, delightType, description, ingre
       {/* right (info) */}
       <div className="w-full h-full">
         {/* title*/}
-        <h3 className="font-Lora font-bold text-[1.5rem]">
+        <h3 className="font-Lora text-[1.5rem] font-medium ">
           { title }
         </h3>
         {/* price */}
         <h3 className="font-Lora font-medium text-[#FD7676] text-[1.25rem]">
-          { formatCurrency(price) }
+          { formatCurrency(price*quantity) }
         </h3>
         {/* btns container */}
         <div className="flex space-x-4 items-center font-Lato ">
@@ -57,7 +57,7 @@ export default function CartItem({ id, quantity, delightType, description, ingre
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
           </button>
-          <button onClick={() => removeFromCart(id)} className="pl-[0.25rem] font-Rubik font-light">remove</button>
+          <button onClick={() => removeFromCart(id)} className="pl-[0.25rem] font-Rubik font-light uppercase tracking-[.20em]">remove</button>
         </div>
       </div>
     </div>

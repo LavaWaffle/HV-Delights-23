@@ -5,53 +5,8 @@ import Filter from '../../components/filter/Filter';
 import WidthLimiter from '../../components/WidthLimiter';
 import { Delights } from '../../types/contentfulTypes';
 
-
-
-// finds url for all poisible pages
-export const getStaticPaths = async () => {
-  // checks if api keys are undefined
-  if (
-    process.env.CONTENTFUL_SPACE_ID === undefined ||
-    process.env.CONTENTFUL_ACCESS_TOKEN === undefined
-  ) {
-    console.log(
-      '%cWARNING: CONTENTFUL SPACE ID OR ACCESS TOKEN IS UNDEFINED',
-      'font-size: 50px; color: red'
-    );
-    return {
-      params: {},
-    };
-  }
-
-  // grab client with space id and access token
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-
-  // grabs thumbnail data
-  const res = await client.getEntries({ 
-    content_type: "thumbnails" 
-  })
-
-  // grabs  all paths by looking at thumbnails slugs
-  const paths = res.items.map((item: any) => {
-    return {
-      params: { slug: item.fields.slug }
-    }
-  })
-  
-  // returns the paths
-  return {
-    paths,
-    // allows page to still be generated even if slug user entered is not in paths
-    fallback: true
-  }
-}
-
 // grab data from contentful
-export async function getStaticProps({ params }: { params: ReadonlyArray<'sandwiches'|'salads'|'soups'|'snacks'|'drinks'>}) {
+export async function getStaticProps() {
 
   // checks if api keys are undefined
   if (
@@ -88,17 +43,16 @@ export async function getStaticProps({ params }: { params: ReadonlyArray<'sandwi
   return {
     props: {
       delights: newDelights,
-      filter: params,
     },
     revalidate: 1,
   };
 }
 
-export default function shopPage({ delights, filter }: { delights: Delights[], filter: any }) {
+export default function shopPage({ delights }: { delights: Delights[] }) {
   // console.log(delights[0]);
   
-  const [typeValue, setTypeValue] = useState<string[]>([filter.slug]);
-
+  const [typeValue, setTypeValue] = useState<string[]>(['drinks']);
+  
   const [sliderValue, setSliderValue] = useState<number>(20);
   return (
     <>
