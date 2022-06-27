@@ -3,7 +3,7 @@ export const Delights = 'delights'
 export interface Delights {
   //delights
   /*  */
-  readonly id: number
+  readonly id: string
   readonly delightType: ReadonlyArray<'Sandwiches'|'Salads'|'Soups'|'Snacks'|'Drinks'>
   readonly description: { content: any, data: any, nodeType: string }
   readonly ingredients: ReadonlyArray<string>

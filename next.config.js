@@ -3,6 +3,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname
+  },
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,

@@ -1,3 +1,4 @@
+import { Modal } from '@mantine/core';
 import { useState } from 'react';
 import { useShoppingCart } from '../../context/ShoppingCartContext';
 import { formatCurrency } from "../../utilities/formatCurrency";
@@ -9,18 +10,22 @@ type DelightModalProps = {
   description: any;
   ingredients: any;
   nutrition: any;
-  closeModal: () => void;
+  opened: boolean;
+  setOpened: any;
 }
 
-export default function DelightModalR({ price, title, thumbnail, description, ingredients, nutrition, closeModal }: DelightModalProps) {
+export default function DelightModalR({ price, title, thumbnail, description, ingredients, nutrition, opened, setOpened }: DelightModalProps) {
   
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart();
-
-  function handleClose() {
-    closeModal()
-  }
   
   return (
-    <div>owo</div>
+    <Modal 
+      opened={opened}
+      onClose={setOpened(false)}
+      centered
+      withCloseButton={true}
+      >
+      iugioug
+    </Modal>
   )
 }

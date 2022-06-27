@@ -112,7 +112,7 @@
 
 .fix {
   position:fixed;
-  z-index: 30;
+  z-index: 0;
   top: 0;
   width: 100%;
 }

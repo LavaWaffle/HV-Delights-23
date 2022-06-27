@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const tailwindCSSAnimista =require("tailwindcss-animistacss")
 
 module.exports = {
   darkMode: 'class',
@@ -70,6 +71,22 @@ module.exports = {
           to: {
             transform: "translateY(0)",
           }
+        },
+        "slide-margin-right": {
+          "0%": {
+            marginLeft: "2000px"
+          },
+          to: {
+            marginLeft: "0"
+          }
+        },
+        "slide-margout-right": {
+          "0%": {
+            marginLeft: "0"
+          },
+          to: {
+            marginLeft: "2000px"
+          }
         }
       },
       animation: {
@@ -79,7 +96,9 @@ module.exports = {
         "fade-in": "fade-in .5s ease-in-out both",
         "nav-slide-down": "nav-slide-down .5s ease-in-out both",
         "slide-in-fwd-right": "slide-in-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
-        "slide-out-fwd-right": "slide-out-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
+        "slide-out-fwd-right": "slide-out-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-margin-right": "slide-margin-right 0.5s ease-in-out  both",
+        "slide-margout-right": "slide-margout-right 0.5s ease-in-out  both"
 
       },
       fontFamily: {
@@ -275,6 +294,18 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
-    require('tailwindcss-ripple')()
+    require('tailwindcss-ripple')(),
+    tailwindCSSAnimista({
+      classes:['animate__slide-in-right'],
+      settings:{
+        'animate__slide-in-right':{
+          duration:1000,
+          delay:0,
+          iterationCounts:1,
+          isInfinite:false,
+        }
+      },
+      variants:["responsive"]
+    }),
   ],
 };

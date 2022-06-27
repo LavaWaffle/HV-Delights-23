@@ -16,9 +16,9 @@ export default function Filter({ typeValue, setTypeValue, sliderValue, setSlider
     {/* left filter */}
     <div className={`w-[75%] h-screen flex flex-col group ${styles.subMenuContainer} `}>
       {/* type wrapper */}
-      <div className={`w-full text-white font-Lato text-[24px] px-2 pb-1 border-b-[1px] border-r-[1px] border-white`}>
+      <div className={`w-full text-white font-Lato text-[24px] px-2 border-b-[1px] border-r-[1px] border-white`}>
         {/* type button */}
-        <button className="w-full inline-flex flex-row items-center justify-between pb-2">
+        <button className="w-full inline-flex flex-row items-center justify-between pb-3 font-Lato font-light tracking-[.20em]">
           <h3>TYPE</h3>
           {/* svg wrapper */}
           <div>
@@ -57,7 +57,7 @@ export default function Filter({ typeValue, setTypeValue, sliderValue, setSlider
       {/* price wrapper */}
       <div className={`w-full text-white font-Lato text-[24px] px-2 pb-1 border-b-[1px] border-r-[1px] border-white`}>
         {/* price button */}
-        <button className="w-full inline-flex flex-row items-center justify-between pb-2">
+        <button className="w-full inline-flex flex-row items-center justify-between font-Lato font-light tracking-[.20em] py-3">
           <h3>PRICE</h3>
           {/* svg wrapper */}
           <div>
@@ -75,16 +75,15 @@ export default function Filter({ typeValue, setTypeValue, sliderValue, setSlider
             step={0.1}
             showLabelOnHover={true} 
             min={0.0} 
-            max={20.0} 
+            max={6.0} 
             value={sliderValue} 
             label={(value) => `$${value}`}
             onChange={setSliderValue} 
             marks={[
               {value: 0, label: '$0'},
-              {value: 5, label: '$5'},
-              {value: 10, label: '$10'},
-              {value: 15, label: '$15'},
-              {value: 20, label: '$20'},
+              {value: 2, label: '$2'},
+              {value: 4, label: '$4'},
+              {value: 6, label: '$6'},
             ]}
           />
         </div>
