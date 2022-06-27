@@ -141,8 +141,8 @@ export default function DelightCard(data: Delights) {
         onRequestClose={() => {
           setDelightModal(false);
         }}
-        closeTimeoutMS={50}
-        className="absolute top-1/2 left-1/2 right-auto bottom-auto -mr-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FFCACA] rounded-[2rem] text-white animate-slide-margin-right"
+        closeTimeoutMS={250}
+        className="absolute top-[50%] left-1/2 right-auto bottom-auto -mr-1/2 -translate-x-1/2 -translate-y-[40%] bg-[#FFCACA] rounded-[2rem] text-white animate-slide-margin-right"
         contentLabel="Delight"
       >
         {/* container */}
