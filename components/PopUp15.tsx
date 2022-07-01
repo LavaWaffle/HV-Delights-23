@@ -69,7 +69,7 @@ export default function PopUp({ closePopUp }: PopUpProps) {
               </div>
               <div className="w-full flex flex-row justify-center mt-2">
                 <div className="text-[#FF4343] text-base font-normal">
-                  No spam. We Promise
+                  No spam. We Promise!
                 </div>
               </div>
             </div>

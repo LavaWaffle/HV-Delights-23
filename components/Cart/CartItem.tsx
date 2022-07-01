@@ -21,7 +21,7 @@ export default function CartItem({ id, quantity, delightType, description, ingre
   
   return (
     // cart item container
-    <div className="flex space-x-2 last:border-none border-b-2 border-white text-white">
+    <div className="flex space-x-2 pb-6 last:border-none border-b-2 border-white text-white">
       {/* left (img) */}
       <div className="w-3/4 h-full">
         <Image

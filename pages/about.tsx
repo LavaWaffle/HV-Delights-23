@@ -19,7 +19,7 @@ export default function AboutPage() {
                     Our story
                   </h1>
                   <p className="font-Oswald font-light bg-[#F4E5E5] lg:w-[75%] text-[1.5rem] p-[10px]">
-                    After learning about cuisine all over the world, our founder, Kai, was estatic and shared many of his delacies with friends.
+                    After learning about cuisine all over the world, our founder, Kai, was ecstatic and shared many of his delicacies with friends.
                   </p>
                 </div>
                 {/* our story img */}
@@ -78,7 +78,7 @@ export default function AboutPage() {
                     What makes us special?
                   </h1>
                   <p className="font-Oswald font-light bg-[#F4E5E5] lg:w-[75%] text-[1.5rem] p-[10px]">
-                    We are ran at Hopewell which allows us to make sure our customers are able to get the cuisine they want! 
+                    We work in Hopewell which allows us to make sure our customers are able to get the cuisine they want!   
                   </p>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
             <div className="flex flex-col items-center justify-center mt-8 lg:mt-0">
               <div className="text-center w-[75%]">
                 <h1 className="font-Oswald font-semibold">
-                  We believe that all students deserve the ability to get nutricious food at an affordable price.
+                  We believe that all students deserve to get nutritious food at an affordable price.
                 </h1>
                 <div className="flex items-center justify-center mt-5">
                   <div className="w-[75%]">

@@ -231,7 +231,7 @@ export default function HomePage() {
               </h1>
 
               <p className="font-Lato font-light tracking-[.07em] text-[35px] sm:text-[27px] w-full leading-[2.5rem] desk:text-[30px]">
-                When you’re ordering from HVDelights, you are supporting the local farmers in NJ and keep their businesses alive. 
+                When you order from HVDelights, you support local farmers in NJ and keep their businesses alive. 
               </p>
 
               <button className={`w-[80%] font-Piazzolla font-light tracking-[.05em] text-3xl sm:text-4xl md-4xl p-3 md:p-5 ${styles.rippleBgCustom} text-[#F47C7C] ${styles.dropShadowButton}`}>

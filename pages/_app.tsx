@@ -31,7 +31,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme, colors: {
-          truePink: ["#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8","#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8", "#f5b8b8"]
+          truePink: ["#eba4a4", "#eba4a4", "#eba4a4", "#eba4a4","#eba4a4", "#eba4a4", "#eba4a4", "#eba4a4", "#eba4a4", "#eba4a4"]
         } }} withGlobalStyles withNormalizeCSS>
           <NotificationsProvider>
             <ShoppingCartProvider>

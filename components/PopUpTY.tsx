@@ -52,7 +52,7 @@ export default function PopUp({ closePopUp }: PopUpProps) {
               </div>
               {/* On your next delight */}
               <div className="text-[#FD7676] font-light text-center text-2xl mt-4 mb-auto">
-               For ordering from HV Delights. Your delights will be delivered shortly
+               For ordering from HV Delights. Your delights will be delivered shortly!
               </div>
             </div>
           </div>

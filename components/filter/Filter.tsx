@@ -1,5 +1,4 @@
-import { Checkbox, CheckboxGroup, CheckboxProps, Divider, RangeSlider, Slider } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { Checkbox, CheckboxGroup, Slider } from "@mantine/core";
 import styles from "./filter.module.css";
 
 type FilterProps = {
