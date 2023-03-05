@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 type props = {
-  setDoor: (boolean) => void
+  setDoor: (arg0: boolean) => void
 }
 
 export default function Door({setDoor}: props) {
