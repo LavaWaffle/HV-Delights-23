@@ -58,8 +58,8 @@ export default function Door({setDoor}: props) {
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_833_6"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_833_6" result="shape"/>
 </filter>
-<filter id="filter1_d_833_6" x="200.6" y="240.6" width="558.4" height="586.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter1_d_833_6" x="200.6" y="240.6" width="558.4" height="586.4" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
 <feGaussianBlur stdDeviation="5"/>

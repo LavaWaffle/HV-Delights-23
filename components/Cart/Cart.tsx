@@ -88,7 +88,7 @@ export default function Cart(closeCart: any) {
                   setFadeStyle('animate-fade-out');
                   setTimeout(() => {
                     closeCart.closeCart();
-                  }, 1250);
+                  }, 750);
                 }} className="bg-[#FD7676] py-[10px]">
                   <div className="flex flex-row justify-center items-center gap-3">
                     <div>
