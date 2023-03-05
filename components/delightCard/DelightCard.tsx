@@ -24,8 +24,7 @@ export default function DelightCard(data: Delights) {
   } = data;
   // console.log(thumbnail.fields.file.url)
   // console.log(rating/2)
-  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
-    useShoppingCart();
+  const { increaseCartQuantity} = useShoppingCart();
   const newDesc: any = description;
   const [quantity, setQuantity] = useState(1);
 
@@ -57,7 +56,7 @@ export default function DelightCard(data: Delights) {
               />
             </div>
             {/* title */}
-            <h3 className="font-Inter font-semibold">{title}</h3>
+            <h3 className="font-Inter font-bold text-grey-500 pt-1 pb-2">{title}</h3>
             {/* reviews */}
             <div className="inline-flex items-baseline space-x-3">
               {/* stars */}

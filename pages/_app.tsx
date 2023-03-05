@@ -8,6 +8,9 @@ import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import '../styles/globals.css';
 import Layout from '../components/Layout';
 import { ShoppingCartProvider } from '../context/ShoppingCartContext';
+import Door from '../components/Door';
+import { useState } from "react";
+
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -20,6 +23,8 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   // useHotkeys([['mod+J', () => toggleColorScheme()]]);
+
+  const [door, setDoor] = useState(true);
 
   return (
     <>
@@ -36,6 +41,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           <NotificationsProvider>
             <ShoppingCartProvider>
               <div className={colorScheme === 'dark' ? 'dark' : ''}>
+                {door && <Door setDoor={setDoor} /> }
                 <Layout>
                   <Component {...pageProps} />
                 </Layout>

@@ -1,14 +1,11 @@
 import WidthLimiter from "../components/WidthLimiter";
 import styles from '../styles/index.module.css';
 import Image from 'next/image';
-import { useViewportSize, useHover } from "@mantine/hooks";
-import { useEffect, useState } from "react";
+import { useHover } from "@mantine/hooks";
 import Link from "next/link";
 
 export default function HomePage() {
   const { hovered, ref } = useHover();
-
-  
 
   return (
     <>

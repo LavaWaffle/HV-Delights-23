@@ -60,7 +60,7 @@ export default function shopPage({ delights }: { delights: Delights[] }) {
 
     writeDB();
   }, []);
-  // console.log(delights[0]);
+
   const [typeValue, setTypeValue] = useState<string[]>([
     'sandwiches',
     'salads',

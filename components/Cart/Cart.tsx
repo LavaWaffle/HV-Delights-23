@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useShoppingCart } from '../../context/ShoppingCartContext';
 import styles from './cart.module.css';
 import CartItem from './CartItem';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import json  from "../../data/delights.json"
 import { Delights } from '../../types/contentfulTypes';
 import { formatCurrency } from '../../utilities/formatCurrency';
@@ -11,17 +11,24 @@ import { formatCurrency } from '../../utilities/formatCurrency';
 export default function Cart(closeCart: any) {
   const { cartItems } = useShoppingCart();
 	const delights = JSON.parse(json)
-	// delights.map((delight: any) => console.log(delight))
+  const [slideStyle, setSlideStyle] = useState('animate-slide-right');
+  const [fadeStyle, setFadeStyle] = useState('animate-fade-in');
   return (
     <>
-      <div className="opacity-40 z-[190]">
-        <div className="animate-fade-in h-screen fixed w-full bg-[#DFDFDF]"></div>
+      <div className={`opacity-40 z-[190]`}>
+        <div className={`${fadeStyle} h-screen fixed w-full bg-[#DFDFDF]`}></div>
       </div>
-      <div className="animate-slide-right w-full h-screen fixed z-[200] flex flex-row justify-end">
+      <div className={`${slideStyle} w-full h-screen fixed z-[200] flex flex-row justify-end`}>
         {/* Blur effect on left side */}
         <button
           className={`hidden sm:block flex-1 h-screen`}
-          onClick={closeCart.closeCart}
+          onClick={() => {
+            setSlideStyle('animate-slide-right-out');
+            setFadeStyle('animate-fade-out');
+            setTimeout(() => {
+              closeCart.closeCart();
+            }, 250);
+          }}
         ></button>
         {/* cart Screen */}
         <div className="shadow-2xl w-[100%] sm:w-[500px] flex flex-col items-stretch opacity-100 text-white">
@@ -31,7 +38,15 @@ export default function Cart(closeCart: any) {
               Your Cart
             </div>
             {/* Close X button */}
-            <button className="w-16 mr-4" onClick={closeCart.closeCart}>
+            <button className="w-16 mr-4" onClick={
+              () => {
+                setSlideStyle('animate-slide-right-out');
+                setFadeStyle('animate-fade-out');
+                setTimeout(() => {
+                  closeCart.closeCart();
+                }, 250);
+              }
+            }>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -68,7 +83,13 @@ export default function Cart(closeCart: any) {
             </div>
             <div className="flex flex-col gap-2">
               <Link href="/checkout">
-                <a onClick={closeCart.closeCart} className="bg-[#FD7676] py-[10px]">
+                <a onClick={() => {
+                  setSlideStyle('animate-slide-down-out');
+                  setFadeStyle('animate-fade-out');
+                  setTimeout(() => {
+                    closeCart.closeCart();
+                  }, 1250);
+                }} className="bg-[#FD7676] py-[10px]">
                   <div className="flex flex-row justify-center items-center gap-3">
                     <div>
                       <svg

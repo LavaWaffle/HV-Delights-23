@@ -27,7 +27,7 @@ export default function Layout({ children }: props) {
         {popUp15State && <PopUp15 closePopUp={handlePopUpState} />}
         {popUpTY && <PopUpTY closePopUp={() => setPopUpTY(!popUpTY)} />}
       </div>
-      <div className="grow-0 z-50">
+      <div className="grow-0 z-40">
         <Navbar />
       </div>
       <main className="grow z-5 overflow-x-hidden">

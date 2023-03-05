@@ -40,6 +40,36 @@ module.exports = {
             opacity: "100%"
           }
         },
+        "slide-out-right": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "100%"
+          },
+          to: {
+            transform: "translateX(650px)",
+            opacity: "0"
+          },
+        },
+        "slide-out-left": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "100%"
+          },
+          to: {
+            transform: "translateX(-650px)",
+            opacity: "0"
+          },
+        },
+        "slide-out-down": {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "100%",
+          },
+          to: {
+            transform: "translateY(1000px)",
+            opacity: "100%",
+          },
+        },
         "slide-in-fwd-right": {
           "0%": {
             transform: "translateZ(700px) translateX(1400px)",
@@ -63,6 +93,14 @@ module.exports = {
           to: {
             opacity: "100%"
           }
+        },
+        "fade-out": {
+          "0%": {
+            opacity: "100%"
+          },
+          to: {
+            opacity: 0
+          },
         },
         "nav-slide-down": {
           "0%": {
@@ -92,8 +130,12 @@ module.exports = {
       animation: {
         "slide-up": "slide-in-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "slide-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-right-out": "slide-out-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-left-out": "slide-out-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-down-out": "slide-out-down 1s cubic-bezier(0.250, 0.460, 0.450, 0.940)",
         "fade-down": "fade-in-slide-down .5s ease-in-out  both",
         "fade-in": "fade-in .5s ease-in-out both",
+        "fade-out": "fade-out .5s ease-in-out both",
         "nav-slide-down": "nav-slide-down .5s ease-in-out both",
         "slide-in-fwd-right": "slide-in-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
         "slide-out-fwd-right": "slide-out-fwd-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
