@@ -30,8 +30,8 @@ export default function checkout() {
   }
 
   return (
-    <section className={`bg-[#FDACAC] ${animateOut}`}>
-      <WidthLimiter paddingAll={true} customPadding={false}>
+    <section className={`bg-[#FDACAC] py-10 ${animateOut}`}>
+      <WidthLimiter paddingAll={false} customPadding={true}>
         <div className="flex">
 
           {/* Left */}
@@ -136,7 +136,7 @@ export default function checkout() {
               </label>
               {/* all inputs */}
               <div className="inline-flex flex-col mx-[5rem] space-y-7">
-                <div className="flex flex-row justify-between">
+                <div className="flex flex-row justify-between space-x-2">
                   {/* First name input */}
                   <input className={styles.input} placeholder="First name" />
 

@@ -58,7 +58,7 @@ export default function DelightCard(data: Delights) {
             {/* title */}
             <h3 className="font-Inter font-bold text-grey-500 pt-1 pb-2">{title}</h3>
             {/* reviews */}
-            <div className="inline-flex items-baseline space-x-3">
+            <div className="inline-flex justify-center items-center space-x-3">
               {/* stars */}
               <div className="rating space-x-1 rating-sm">
                 <input
@@ -94,7 +94,7 @@ export default function DelightCard(data: Delights) {
                 />
               </div>
               {/* reviews */}
-              <span>{numReviews} reviews</span>
+              <span className="text-[91%]">{numReviews} reviews</span>
             </div>
             {/* desc */}
             <div className="font-Inter m-auto">{documentToReactComponents(newDesc)}</div>
