@@ -156,7 +156,11 @@ module.exports = {
         'Lora': ['Lora'],
         'Berkshire': ['Berkshire Swash'],
         'Rubik': ['Rubik'],
-        'Inter': ["Inter"]
+        'Inter': ["Inter"],
+        'Playfair': ['Playfair Display']
+      },
+      dropShadow: {
+        'Door': '0 4px 10px rgba(0, 0, 0, 0.25)'
       },
       screens: {
         "phone": { 'min': '300px', 'max': '640px' },
