@@ -141,8 +141,9 @@ export default function DelightCard(data: Delights) {
           setDelightModal(false);
         }}
         closeTimeoutMS={250}
-        className="absolute top-[50%] left-1/2 right-auto bottom-auto -mr-1/2 -translate-x-1/2 -translate-y-[40%] bg-[#FFCACA] rounded-[2rem] text-white animate-slide-margin-right"
+        className="absolute top-[50%] left-1/2 right-auto bottom-auto -mr-1/2 -translate-x-1/2 -translate-y-[40%] bg-[#FFCACA] rounded-[2rem] text-black animate-slide-margin-right"
         contentLabel="Delight"
+        overlayClassName="fixed inset-0 bg-[#DFDFDF] opacity-40 bg-opacity-40" 
       >
         {/* container */}
         <div className="w-[65vw] py-5 px-10">
@@ -176,7 +177,7 @@ export default function DelightCard(data: Delights) {
               {/* ingredients */}
               <div className="w-full overflow-clip flex flex-col gap-4">
                 <p className="font-Rubik font-medium text-[1rem] ">
-                  <span className='text-[#FAFAFA]'>Ingredients:</span>
+                  <span className='text-[#161616]'>Ingredients:</span>
                   {ingredients.map((ingredient) => (
                     <span
                       key={ingredient}
@@ -188,7 +189,7 @@ export default function DelightCard(data: Delights) {
                 </p>
                 {/* nutrition info */}
                 <p className="font-Inter font-bold text-[0.95rem]">
-                  <span className="text-[#FAFAFA] text-base">Product Facts</span>
+                  <span className="text-[#161616] text-base">Product Facts</span>
                   <ul className="mt-1 text-sm">
                     {nutrition.map((nutrition) => (
                       <li key={nutrition} className="ml-4 before:content-['\2022\00A0\00A0'] ">
@@ -249,7 +250,7 @@ export default function DelightCard(data: Delights) {
                 </div>
 
                 {/* price */}
-                <div className="font-Rubik text-[1.55rem] text-white">
+                <div className="font-Rubik text-[1.55rem]">
                   Price - <span className="text-[#48BD77]">{formatCurrency(price * quantity)}</span>
                 </div>
 
@@ -262,7 +263,7 @@ export default function DelightCard(data: Delights) {
                 </button>
 
                 {/* smoll words */}
-                <p className="text-[#F5F5F5] text-left text-[0.75rem]">
+                <p className="text-[#161616] text-left text-[0.75rem]">
                   Free U.S. shipping for orders over $20, and a risk-free <span className='underline underline-offset-4'>quality guarantee!</span>
                 </p>
               </div>
