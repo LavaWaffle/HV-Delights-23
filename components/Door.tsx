@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useHotkeys } from "@mantine/hooks";
 
 type props = {
   setDoor: (arg0: boolean) => void
@@ -7,20 +8,22 @@ type props = {
 export default function Door({setDoor}: props) {
   const [leave, setLeave] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLeave(true);
-    }, 2000);
+  useHotkeys([
+    ['Enter', handleLeave] 
+  ]);
+
+  function handleLeave() {
+    setLeave(true);
     setTimeout(() => {
       setDoor(false);
-    }, 2500)
-  }, []);
+    }, 500)
+  }
 
   return (
     // full screen
     <section className="fixed top-0 left-0 w-full h-full z-50 flex">
       <div className={`w-1/2 ${leave ? "animate-slide-left-out" : ""}`}>
-      <svg width="971" height="1080" viewBox="0 0 971 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 971 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 0H971V1080H0V0Z" fill="#FD7676"/>
 <path d="M0 0H971V1080H0V0Z" fill="#FD7676"/>
 <mask id="mask0_833_6" style={{maskType: "luminance"}} maskUnits="userSpaceOnUse" x="0" y="0" width="971" height="1080">
@@ -73,7 +76,7 @@ export default function Door({setDoor}: props) {
       </div>
 
       <div className={`w-1/2 ${leave ? "animate-slide-right-out" : ""}`}>
-      <svg width="978" height="1080" viewBox="0 0 978 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 978 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="path-1-inside-1_833_25" fill="white">
 <path d="M0 0H978V1080H0V0Z"/>
 </mask>
