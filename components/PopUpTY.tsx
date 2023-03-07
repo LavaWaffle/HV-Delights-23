@@ -46,7 +46,7 @@ export default function PopUp({ closePopUp }: PopUpProps) {
               </button>
               {/* Save 15 */}
               <div className="flex flex-row justify-center mt-auto">
-                <div className="font-semibold text-7xl">
+                <div className="font-semibold text-5xl pb-5">
                   <span className="text-[#FD7676]">THANK </span> <span className="text-white">YOU</span>
                 </div>
               </div>

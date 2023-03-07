@@ -48,7 +48,7 @@ export default function PopUp({ closePopUp }: PopUpProps) {
 
               {/* Save 15 */}
               <div className="flex flex-row justify-center">
-                <div className="font-semibold text-7xl">
+                <div className="font-semibold text-6xl">
                   <span className="text-[#FD7676]">SAVE </span> <span className="text-white">15%</span>
                 </div>
               </div>
@@ -59,12 +59,12 @@ export default function PopUp({ closePopUp }: PopUpProps) {
 
               {/* Your Email */}
               <div className="w-full flex flex-row justify-center mt-4">
-                <input className="focus:outline-none w-[80%] border-black border-2 rounded-md bg-transparent px-2 py-3 font-medium text-2xl text-[#f95e5e] placeholder:text-[#F0F0F0]" placeholder="Your email" />
+                <input className="focus:outline-none w-[80%] border-black border-2 rounded-md bg-transparent px-2 py-3 font-medium text-xl text-[#f95e5e] placeholder:text-[#F0F0F0]" placeholder="Your email" />
               </div>
               {/* Yes 15% discount */}
               <div className="w-full flex flex-row justify-center mt-6">
                 <button className="w-[80%] text-[#FD7676] font-semibold text-2xl py-3 rounded-3xl  bg-white uppercase text-center ">
-                  15% discount, yes please!
+                  15% discount, <br /> yes please!
                 </button>
               </div>
               <div className="w-full flex flex-row justify-center mt-2">

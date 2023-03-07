@@ -74,7 +74,7 @@ export default function Footer() {
 									</div>
 								</div>
 								<p className="text-[#847B7B] font-Lato font-normal tracking-[.07em]">
-									Copyright © 2022 HVDelights
+									Copyright © 2023 HVDelights
 								</p>
 							</div>
 						</div>
