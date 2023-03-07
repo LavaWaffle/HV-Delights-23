@@ -99,16 +99,16 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="w-screen overflow-hidden text-center">
             {/* HV */}
-            <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[350px] sm:text-[500px] md:text-[600px] lg:text-[700px] opacity-20 -z-50">
+            <h1 className="select-none font-Lato font-extralight overflow-hidden text-white text-[350px] sm:text-[500px] md:text-[600px] lg:text-[650px] opacity-20 -z-50">
               HV
             </h1>
           </div>
         </div>
         <WidthLimiter paddingAll={true} customPadding={false}>
           {/* extra padding */}
-          <div className="pt-[2rem] sm:pb-[6rem] w-full">
+          <div className="pt-[1rem] sm:pb-[5rem] w-full">
             {/* flex */}
-            <div className="flex flex-col items-center space-y-5">
+            <div className="flex flex-col items-center space-y-3">
               <div className="font-Lato font-light text-3xl">
                 FEATURED BY
               </div>
@@ -199,17 +199,17 @@ export default function HomePage() {
       {/* review */} 
       <section className="bg-[#FDACAC] sm:pt-[15rem] lg:pt-[6rem]">
         <div className="grid justify-items-center font-Lora font-normal">
-          <h4 className={`${styles.startQuote} text-[1.5rem] sm:text-[3rem] text-center text-white`}>
+          <h4 className={`${styles.startQuote} text-[1rem] sm:text-[2.5rem] text-center text-white`}>
             I am always excited to order <br /> from HVDelights. The food is <br />always so yummy and <br />authentic!
           </h4>
           <div className="rating space-x-3  mt-[1rem] sm:mt-[2rem]">
-            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[3rem] sm:w-[3rem] mask mask-star-2 bg-[#FF0000]" />
-            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[3rem] sm:w-[3rem] mask mask-star-2 bg-[#FF0000]" />
-            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[3rem] sm:w-[3rem] mask mask-star-2 bg-[#FF0000]" />
-            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[3rem] sm:w-[3rem] mask mask-star-2 bg-[#FF0000]" />
-            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[3rem] sm:w-[3rem] mask mask-star-2 bg-[#FF0000]" checked />
+            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[2rem] sm:w-[2rem] mask mask-star-2 bg-[#FF0000]" />
+            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[2rem] sm:w-[2rem] mask mask-star-2 bg-[#FF0000]" />
+            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[2rem] sm:w-[2rem] mask mask-star-2 bg-[#FF0000]" />
+            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[2rem] sm:w-[2rem] mask mask-star-2 bg-[#FF0000]" />
+            <input readOnly type="radio" name="rating-8" className="h-[2.5rem] w-[2.5rem] sm:h-[2rem] sm:w-[2rem] mask mask-star-2 bg-[#FF0000]" checked />
           </div> 
-          <h2 className="font-Berkshire text-[1.5rem] sm:text-[3rem] text-white">
+          <h2 className="font-Berkshire text-[1rem] sm:text-[3rem] text-white">
             - Scott A
           </h2>
         </div>
@@ -223,7 +223,7 @@ export default function HomePage() {
           <div className="flex flex-col-reverse sm:flex-row items-center gap-3 sm:gap-0 sm:justify-around">
             {/* left (words) */}
             <div className="w-[95%] sm:w-[45%] md-[35%] lg:w-[40%] space-y-[25px] mb-11 flex-col flex lg:gap-10">
-              <h1 className={`${styles.ourCommunity} font-Oswald text-black`}>
+              <h1 className={`${styles.ourCommunity} font-Oswald text-black text-[0.5rem]`}>
                 Our commitment to <br/>our community
               </h1>
 
